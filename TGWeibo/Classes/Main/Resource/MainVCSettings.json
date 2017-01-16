@@ -1,0 +1,22 @@
+[
+ {
+    "vcName": "HomeTableViewController",
+    "title": "Home",
+    "imageName": "tabbar_home"
+ },
+ {
+     "vcName": "MessageTableViewController",
+     "title": "Message",
+     "imageName": "tabbar_message_center"
+ },
+ {
+     "vcName": "DiscoverTableViewController",
+     "title": "Discover"",
+     "imageName": "tabbar_discover"
+ },
+ {
+     "vcName": "MeTableViewController",
+     "title": "Me",
+     "imageName": "tabbar_profile"
+ }
+ ]
