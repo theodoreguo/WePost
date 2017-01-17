@@ -10,7 +10,7 @@ import UIKit
 
 class BaseTableViewController: UITableViewController, VisitorViewDelegate {
     // Define a variable to judge current user has logged in or not
-    var userLogin = false
+    var userLogin = true
     
     // Difine an attribute to save visitor view
     var visitorView: VisitorView?
