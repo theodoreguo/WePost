@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10C112661E2D19C400951119 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C112651E2D19C400951119 /* BaseTableViewController.swift */; };
+		10C112681E2D260D00951119 /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C112671E2D260D00951119 /* VisitorView.swift */; };
+		10C1126A1E2D9B4100951119 /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C112691E2D9B4100951119 /* UIView+AutoLayout.swift */; };
 		10FA3E4F1E2C852E00E15D94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FA3E4E1E2C852E00E15D94 /* AppDelegate.swift */; };
 		10FA3E561E2C852E00E15D94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10FA3E551E2C852E00E15D94 /* Assets.xcassets */; };
 		10FA3E641E2C852E00E15D94 /* TGWeiboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FA3E631E2C852E00E15D94 /* TGWeiboTests.swift */; };
@@ -38,6 +41,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		10C112651E2D19C400951119 /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
+		10C112671E2D260D00951119 /* VisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
+		10C112691E2D9B4100951119 /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+AutoLayout.swift"; path = "../../UIView+AutoLayout.swift"; sourceTree = "<group>"; };
 		10FA3E4B1E2C852E00E15D94 /* TGWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TGWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10FA3E4E1E2C852E00E15D94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10FA3E551E2C852E00E15D94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -171,8 +177,10 @@
 		10FA3E801E2C902F00E15D94 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				10FA3E841E2C90DC00E15D94 /* MainViewController.swift */,
 				10FA3E8E1E2CB16700E15D94 /* Resource */,
+				10FA3E841E2C90DC00E15D94 /* MainViewController.swift */,
+				10C112651E2D19C400951119 /* BaseTableViewController.swift */,
+				10C112671E2D260D00951119 /* VisitorView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -196,6 +204,7 @@
 		10FA3E831E2C902F00E15D94 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				10C112691E2D9B4100951119 /* UIView+AutoLayout.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -340,8 +349,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				10FA3E871E2C911C00E15D94 /* HomeTableViewController.swift in Sources */,
+				10C112681E2D260D00951119 /* VisitorView.swift in Sources */,
 				10FA3E851E2C90DC00E15D94 /* MainViewController.swift in Sources */,
+				10C112661E2D19C400951119 /* BaseTableViewController.swift in Sources */,
 				10FA3E891E2C91EB00E15D94 /* DiscoverTableViewController.swift in Sources */,
+				10C1126A1E2D9B4100951119 /* UIView+AutoLayout.swift in Sources */,
 				10FA3E4F1E2C852E00E15D94 /* AppDelegate.swift in Sources */,
 				10FA3E8B1E2C920F00E15D94 /* MeTableViewController.swift in Sources */,
 				10FA3E8D1E2C923D00E15D94 /* MessageTableViewController.swift in Sources */,
@@ -555,6 +567,7 @@
 				10FA3E751E2C852E00E15D94 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		10FA3E761E2C852E00E15D94 /* Build configuration list for PBXNativeTarget "TGWeiboTests" */ = {
 			isa = XCConfigurationList;
@@ -563,6 +576,7 @@
 				10FA3E781E2C852E00E15D94 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		10FA3E791E2C852E00E15D94 /* Build configuration list for PBXNativeTarget "TGWeiboUITests" */ = {
 			isa = XCConfigurationList;
@@ -571,6 +585,7 @@
 				10FA3E7B1E2C852E00E15D94 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

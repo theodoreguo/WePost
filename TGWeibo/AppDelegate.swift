@@ -15,11 +15,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // 1. Create window
+        // Set navigation bar and tool bar's appearance
+        UINavigationBar.appearance().tintColor = UIColor.orangeColor()
+        UITabBar.appearance().tintColor = UIColor.orangeColor()
+        
+        // Create window
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.backgroundColor = UIColor.whiteColor()
         
-        // 2. Create root view controller
+        // Create root view controller
         window?.rootViewController = MainViewController()
         window?.makeKeyAndVisible()
         

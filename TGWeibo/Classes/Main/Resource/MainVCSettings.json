@@ -10,8 +10,13 @@
      "imageName": "tabbar_message_center"
  },
  {
+     "vcName": "NullViewController",
+     "title": "",
+     "imageName": ""
+ },
+ {
      "vcName": "DiscoverTableViewController",
-     "title": "Discover"",
+     "title": "Discover",
      "imageName": "tabbar_discover"
  },
  {
@@ -19,4 +24,4 @@
      "title": "Me",
      "imageName": "tabbar_profile"
  }
- ]
+]
