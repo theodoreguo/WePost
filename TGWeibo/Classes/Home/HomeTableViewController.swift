@@ -15,7 +15,7 @@ class HomeTableViewController: BaseTableViewController {
         
         // Set visitor view info, if the user hasn't logged in
         if !userLogin {
-            visitorView?.setUpVisitorViewInfo(true, imageName: "visitordiscover_feed_image_house", message: "关注一些人，回这里看看有什么惊喜")
+            visitorView?.setUpVisitorViewInfo(true, imageName: "visitordiscover_feed_image_house", message: "Follow someone, then you will get some surprises")
             
             return
         }

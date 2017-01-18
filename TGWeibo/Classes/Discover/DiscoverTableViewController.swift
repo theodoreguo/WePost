@@ -15,7 +15,7 @@ class DiscoverTableViewController: BaseTableViewController {
 
         // Set visitor view info, if the user hasn't logged in
         if !userLogin {
-            visitorView?.setUpVisitorViewInfo(false, imageName: "visitordiscover_image_message", message: "登录后，最新、最热微博尽在掌握，不再会与实事潮流擦肩而过")
+            visitorView?.setUpVisitorViewInfo(false, imageName: "visitordiscover_image_message", message: "Log in to stay in touch with hottest and latest weibo")
         }
     }
 

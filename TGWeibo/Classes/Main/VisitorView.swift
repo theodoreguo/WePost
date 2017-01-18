@@ -121,6 +121,8 @@ class VisitorView: UIView {
         label.numberOfLines = 0
         label.textColor = UIColor.lightGrayColor()
         label.text = ""
+        label.textAlignment = .Center
+        label.font = UIFont.systemFontOfSize(13)
         return label
     }()
     

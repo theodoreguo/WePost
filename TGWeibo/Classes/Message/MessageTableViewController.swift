@@ -15,7 +15,7 @@ class MessageTableViewController: BaseTableViewController {
 
         // Set visitor view info, if the user hasn't logged in
         if !userLogin {
-            visitorView?.setUpVisitorViewInfo(false, imageName: "visitordiscover_image_message", message: "登录后，别人评论你的微博，发给你的消息，都会在这里收到通知")
+            visitorView?.setUpVisitorViewInfo(false, imageName: "visitordiscover_image_message", message: "Notificatons of being mentioned, comments and private messages...")
         }
     }
 
