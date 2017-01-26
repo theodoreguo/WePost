@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rt2-Sg-Udw">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="qIZ-ag-2ZS">
+            <objects>
+                <navigationController id="rt2-Sg-Udw" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LiR-1V-H8a">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Wws-Lj-bul" kind="relationship" relationship="rootViewController" id="Da2-sE-Bye"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oci-vB-oOP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-468" y="253"/>
+        </scene>
+        <!--Code View Controller-->
+        <scene sceneID="xpk-ku-3Pc">
+            <objects>
+                <viewController id="Wws-Lj-bul" customClass="QRCodeViewController" customModule="TGWeibo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QIc-BI-ovx"/>
+                        <viewControllerLayoutGuide type="bottom" id="3Px-Pb-7mY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3VV-85-Ccj">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bjW-sx-Ww7">
+                                <rect key="frame" x="0.0" y="551" width="600" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="BkJ-dQ-8p2"/>
+                                </constraints>
+                                <items>
+                                    <tabBarItem tag="1" title="QR Code" image="qrcode_tabbar_icon_qrcode" id="FXz-Cv-iGa"/>
+                                    <tabBarItem title="Bar Code" image="qrcode_tabbar_icon_barcode" id="fJ0-O5-pXu"/>
+                                </items>
+                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </tabBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SRw-03-veN" userLabel="Container View">
+                                <rect key="frame" x="150" y="150" width="300" height="300"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrcode_border" translatesAutoresizingMaskIntoConstraints="NO" id="fyw-Xx-OQd" userLabel="QRCode Border Image View">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrcode_scanline_qrcode" translatesAutoresizingMaskIntoConstraints="NO" id="dbo-zQ-s82" userLabel="QRCode Scanline Image View">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="dbo-zQ-s82" firstAttribute="centerX" secondItem="SRw-03-veN" secondAttribute="centerX" id="2A5-Wq-2gB"/>
+                                    <constraint firstItem="dbo-zQ-s82" firstAttribute="height" secondItem="SRw-03-veN" secondAttribute="height" id="4si-J8-chE"/>
+                                    <constraint firstAttribute="bottom" secondItem="fyw-Xx-OQd" secondAttribute="bottom" id="C9m-x7-cbL"/>
+                                    <constraint firstItem="fyw-Xx-OQd" firstAttribute="top" secondItem="SRw-03-veN" secondAttribute="top" id="HbR-3o-qJn"/>
+                                    <constraint firstAttribute="height" constant="300" id="PsI-7h-n5C"/>
+                                    <constraint firstAttribute="width" constant="300" id="cN5-cZ-KW2"/>
+                                    <constraint firstAttribute="trailing" secondItem="fyw-Xx-OQd" secondAttribute="trailing" id="cf4-Di-fr4"/>
+                                    <constraint firstItem="fyw-Xx-OQd" firstAttribute="leading" secondItem="SRw-03-veN" secondAttribute="leading" id="cgk-Xe-fa1"/>
+                                    <constraint firstItem="dbo-zQ-s82" firstAttribute="width" secondItem="SRw-03-veN" secondAttribute="width" id="eLm-kr-GdE"/>
+                                    <constraint firstItem="dbo-zQ-s82" firstAttribute="top" secondItem="SRw-03-veN" secondAttribute="top" id="jvG-2F-ds8"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Align QR/bar code within the frame to scan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgK-5H-Oru">
+                                <rect key="frame" x="170" y="460" width="260" height="16"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.09522153253" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xj4-oB-u7k" userLabel="My Card Button">
+                                <rect key="frame" x="271" y="510" width="58" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="My Card">
+                                    <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="myCardBtnClick:" destination="Wws-Lj-bul" eventType="touchUpInside" id="S6l-Ke-om5"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xj4-oB-u7k" firstAttribute="centerX" secondItem="3VV-85-Ccj" secondAttribute="centerX" id="1WJ-0D-cqu"/>
+                            <constraint firstItem="fgK-5H-Oru" firstAttribute="centerX" secondItem="3VV-85-Ccj" secondAttribute="centerX" id="2DH-vn-hpF"/>
+                            <constraint firstItem="SRw-03-veN" firstAttribute="centerY" secondItem="3VV-85-Ccj" secondAttribute="centerY" id="4Bj-7j-uQb"/>
+                            <constraint firstItem="xj4-oB-u7k" firstAttribute="top" secondItem="SRw-03-veN" secondAttribute="bottom" constant="60" id="6Z6-GN-27r"/>
+                            <constraint firstItem="bjW-sx-Ww7" firstAttribute="leading" secondItem="3VV-85-Ccj" secondAttribute="leading" id="8z9-hU-Nxs"/>
+                            <constraint firstItem="SRw-03-veN" firstAttribute="centerX" secondItem="3VV-85-Ccj" secondAttribute="centerX" id="AjM-FI-seg"/>
+                            <constraint firstItem="3Px-Pb-7mY" firstAttribute="top" secondItem="bjW-sx-Ww7" secondAttribute="bottom" id="rt8-xm-uaT"/>
+                            <constraint firstAttribute="trailing" secondItem="bjW-sx-Ww7" secondAttribute="trailing" id="x3q-fj-tlH"/>
+                            <constraint firstItem="fgK-5H-Oru" firstAttribute="top" secondItem="SRw-03-veN" secondAttribute="bottom" constant="10" id="yZv-Hx-LT9"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="wMB-PD-elQ">
+                        <barButtonItem key="leftBarButtonItem" title="Close" id="dfu-Wl-mkm">
+                            <connections>
+                                <action selector="closeBtnClick:" destination="Wws-Lj-bul" id="16B-Sz-dHM"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Albums" id="U4G-Tp-SRf"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="containerHeightCons" destination="PsI-7h-n5C" id="GfN-1T-zAl"/>
+                        <outlet property="customTabBar" destination="bjW-sx-Ww7" id="qvC-gX-YY5"/>
+                        <outlet property="scanlineCons" destination="jvG-2F-ds8" id="cGQ-JX-1XF"/>
+                        <outlet property="scanlineView" destination="dbo-zQ-s82" id="mL4-jq-GZ1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6cy-Dz-ZkJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="192" y="253"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="qrcode_border" width="51" height="51"/>
+        <image name="qrcode_scanline_qrcode" width="218" height="170"/>
+        <image name="qrcode_tabbar_icon_barcode" width="40" height="40"/>
+        <image name="qrcode_tabbar_icon_qrcode" width="40" height="40"/>
+    </resources>
+</document>

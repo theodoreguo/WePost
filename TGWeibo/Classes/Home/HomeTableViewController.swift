@@ -85,7 +85,9 @@ class HomeTableViewController: BasicTableViewController {
      Actions once pop button is clicked
      */
     func rightItemClick() {
-        print(#function)
+        let sb = UIStoryboard(name: "QRCodeViewController", bundle: nil)
+        let vc = sb.instantiateInitialViewController()
+        presentViewController(vc!, animated: true, completion: nil)
     }
     
     // MARK: - Lazy loading
