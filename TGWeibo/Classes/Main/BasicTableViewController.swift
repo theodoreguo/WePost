@@ -1,5 +1,5 @@
 //
-//  BaseTableViewController.swift
+//  BasicTableViewController.swift
 //  TGWeibo
 //
 //  Created by Theodore Guo on 16/1/17.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-class BaseTableViewController: UITableViewController, VisitorViewDelegate {
+class BasicTableViewController: UITableViewController, VisitorViewDelegate {
     // Define a variable to judge current user has logged in or not
-    var userLogin = false
+    var userLogin = true
     
     // Difine an attribute to save visitor view
     var visitorView: VisitorView?
@@ -32,8 +32,8 @@ class BaseTableViewController: UITableViewController, VisitorViewDelegate {
         
         // Set navigation bar button
 //        navigationController?.navigationBar.tintColor = UIColor.orangeColor()
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Register", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(BaseTableViewController.registerBtnDidClick))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Login", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(BaseTableViewController.loginBtnDidClick))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Register", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(BasicTableViewController.registerBtnDidClick))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Login", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(BasicTableViewController.loginBtnDidClick))
     }
     
     // MARK: - VisitorViewDelegate

@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol VisitorViewDelegate : NSObjectProtocol {
+protocol VisitorViewDelegate: NSObjectProtocol {
     // Login call-back
     func loginBtnDidClick()
     // Register call-back

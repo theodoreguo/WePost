@@ -8,27 +8,45 @@
 
 import UIKit
 
-class HomeTableViewController: BaseTableViewController {
+class HomeTableViewController: BasicTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Set visitor view info, if the user hasn't logged in
+        // 1. Set visitor view info, if the user hasn't logged in
         if !userLogin {
             visitorView?.setUpVisitorViewInfo(true, imageName: "visitordiscover_feed_image_house", message: "Follow someone, then you will get some surprises")
             
             return
         }
         
-        // Set up navigation bar
+        // 2. Set up navigation bar
         setUpNavi()
+        
+        // 3. Register notification to monitor popover's actions
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HomeTableViewController.change), name: TGPopoverAnimatorWillShow, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HomeTableViewController.change), name: TGPopoverAnimatorWillDismiss, object: nil)
+    }
+    
+    deinit {
+        // Remove notificatons
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    /**
+     Change arrow's up-down direction of title button
+     */
+    func change() {
+        // Change title button's state
+        let titleBtn = navigationItem.titleView as! TitleButton
+        titleBtn.selected = !titleBtn.selected
     }
     
     /**
      Set up navigation bar
      */
     private func setUpNavi() {
-        // Set up left / right navigation bar button
+        // Set up left/right navigation bar button
         navigationItem.leftBarButtonItem = UIBarButtonItem.createBarButtonItem("navigationbar_friendattention", target: self, action: #selector(leftItemClick))
         navigationItem.rightBarButtonItem = UIBarButtonItem.createBarButtonItem("navigationbar_pop", target: self, action: #selector(rightItemClick))
         
@@ -45,7 +63,15 @@ class HomeTableViewController: BaseTableViewController {
      - parameter button: button clicked
      */
     func titleBtnClick(button: TitleButton) {
-        button.selected = !button.selected
+        // Set up popover list
+        let sb = UIStoryboard(name: "PopoverViewController", bundle: nil)
+        let vc = sb.instantiateInitialViewController()
+        // Set transition delegate
+        vc?.transitioningDelegate = popoverAnimator
+        // Set presention style
+        vc?.modalPresentationStyle = UIModalPresentationStyle.Custom
+        
+        presentViewController(vc!, animated: true, completion: nil)
     }
     
     /**
@@ -61,5 +87,12 @@ class HomeTableViewController: BaseTableViewController {
     func rightItemClick() {
         print(#function)
     }
-
+    
+    // MARK: - Lazy loading
+    /// It's necessary to define an attribute to store transitioning object, or exceptions will appear
+    private lazy var popoverAnimator:PopoverAnimator = {
+        let pa = PopoverAnimator()
+        pa.presentFrame = CGRect(x: 100, y: 56, width: 200, height: 350)
+        return pa
+    }()
 }
