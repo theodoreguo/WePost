@@ -10,7 +10,7 @@ import UIKit
 
 class BasicTableViewController: UITableViewController, VisitorViewDelegate {
     // Define a variable to judge current user has logged in or not
-    var userLogin = true
+    var userLogin = false
     
     // Difine an attribute to save visitor view
     var visitorView: VisitorView?
@@ -38,7 +38,10 @@ class BasicTableViewController: UITableViewController, VisitorViewDelegate {
     
     // MARK: - VisitorViewDelegate
     func registerBtnDidClick() {
-        print(#function)
+        // Present login interface
+        let oauthVC = OAuthViewController()
+        let navi = UINavigationController(rootViewController: oauthVC)
+        presentViewController(navi, animated: true, completion: nil)
     }
     
     func loginBtnDidClick() {

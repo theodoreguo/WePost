@@ -13,6 +13,7 @@
 		106EBEF51E39DFD1001618F4 /* QRCodeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 106EBEF41E39DFD1001618F4 /* QRCodeViewController.storyboard */; };
 		106EBEF71E39E21C001618F4 /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106EBEF61E39E21C001618F4 /* QRCodeViewController.swift */; };
 		106EBEF91E3A4C47001618F4 /* QRCodeCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106EBEF81E3A4C47001618F4 /* QRCodeCardViewController.swift */; };
+		106EBEFC1E3B2A02001618F4 /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106EBEFB1E3B2A02001618F4 /* OAuthViewController.swift */; };
 		10C112661E2D19C400951119 /* BasicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C112651E2D19C400951119 /* BasicTableViewController.swift */; };
 		10C112681E2D260D00951119 /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C112671E2D260D00951119 /* VisitorView.swift */; };
 		10C1126A1E2D9B4100951119 /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C112691E2D9B4100951119 /* UIView+AutoLayout.swift */; };
@@ -56,6 +57,7 @@
 		106EBEF41E39DFD1001618F4 /* QRCodeViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = QRCodeViewController.storyboard; sourceTree = "<group>"; };
 		106EBEF61E39E21C001618F4 /* QRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 		106EBEF81E3A4C47001618F4 /* QRCodeCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeCardViewController.swift; sourceTree = "<group>"; };
+		106EBEFB1E3B2A02001618F4 /* OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
 		10C112651E2D19C400951119 /* BasicTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicTableViewController.swift; sourceTree = "<group>"; };
 		10C112671E2D260D00951119 /* VisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
 		10C112691E2D9B4100951119 /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+AutoLayout.swift"; path = "../../UIView+AutoLayout.swift"; sourceTree = "<group>"; };
@@ -130,6 +132,14 @@
 			path = Popover/QRCode;
 			sourceTree = "<group>";
 		};
+		106EBEFA1E3B29BA001618F4 /* OAuth */ = {
+			isa = PBXGroup;
+			children = (
+				106EBEFB1E3B2A02001618F4 /* OAuthViewController.swift */,
+			);
+			path = OAuth;
+			sourceTree = "<group>";
+		};
 		10FA3E421E2C852E00E15D94 = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +200,7 @@
 				10FA3E801E2C902F00E15D94 /* Main */,
 				10FA3E811E2C902F00E15D94 /* Me */,
 				10FA3E821E2C902F00E15D94 /* Message */,
+				106EBEFA1E3B29BA001618F4 /* OAuth */,
 				10FA3E831E2C902F00E15D94 /* Tools */,
 			);
 			path = Classes;
@@ -469,6 +480,7 @@
 				106EBEF91E3A4C47001618F4 /* QRCodeCardViewController.swift in Sources */,
 				106EBEF01E39A318001618F4 /* PopoverPresentationController.swift in Sources */,
 				10FA3E871E2C911C00E15D94 /* HomeTableViewController.swift in Sources */,
+				106EBEFC1E3B2A02001618F4 /* OAuthViewController.swift in Sources */,
 				10C112681E2D260D00951119 /* VisitorView.swift in Sources */,
 				10FA3E851E2C90DC00E15D94 /* MainViewController.swift in Sources */,
 				10C112661E2D19C400951119 /* BasicTableViewController.swift in Sources */,
