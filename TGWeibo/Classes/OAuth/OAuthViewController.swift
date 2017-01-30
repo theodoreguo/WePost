@@ -42,6 +42,58 @@ class OAuthViewController: UIViewController {
     /// Web view
     private lazy var webView: UIWebView = {
         let wv = UIWebView()
+        wv.delegate = self
         return wv
     }()
+}
+
+extension OAuthViewController: UIWebViewDelegate {
+    /**
+     Returning true means loading succeeded, or it means loading failed
+     */
+    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        // 1. Judge to continue if it isn't authorization callback page
+        let urlStr = request.URL!.absoluteString
+        if !urlStr.hasPrefix(WB_redirect_uri) {
+            return true
+        }
+        
+        // 2. Judge authorization succeeded or not
+        let codeStr = "code="
+        if request.URL!.query!.hasPrefix(codeStr) { // Authorization succeeded
+            // Get authorized request token
+            let code = request.URL?.query?.substringFromIndex(codeStr.endIndex)
+            // Get access token using authorized request token
+            loadAccessToken(code!)
+        } else { // Cancel authorization
+            // Close login interface
+            close()
+        }
+        
+        return false
+    }
+    
+    /**
+     Get access token
+     
+     - parameter code: authorized request token
+     */
+    private func loadAccessToken(code: String) {
+        // 1. Define path
+        let path = "oauth2/access_token"
+        
+        // 2. Set parameters
+        let params = ["client_id": WB_App_Key, "client_secret": WB_App_Secret, "grant_type": "authorization_code", "code": code, "redirect_uri": WB_redirect_uri]
+        
+        // 3. Post request
+        NetworkTools.shareNetworkTools().POST(path, parameters: params, progress: nil, success: { (_, JSON) in
+            // 1. Convert dictionary to model
+            let account = UserAccount(dict: JSON as! [String : AnyObject])
+            
+            // 2. Archive model
+            account.saveAccount()
+            }) { (_, error) in
+                print(error)
+        }
+    }
 }

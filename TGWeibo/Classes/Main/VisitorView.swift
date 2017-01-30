@@ -74,7 +74,6 @@ class VisitorView: UIView {
      Actions once register button is clicked
      */
     func registerBtnClick() {
-//        print(#function)
         delegate?.registerBtnDidClick()
     }
     
@@ -82,7 +81,6 @@ class VisitorView: UIView {
      Actions once login button is clicked
      */
     func loginBtnClick() {
-//        print(#function)
         delegate?.loginBtnDidClick()
     }
     
@@ -133,7 +131,7 @@ class VisitorView: UIView {
         btn.setTitle("Register", forState: UIControlState.Normal)
         btn.setBackgroundImage(UIImage(named: "common_button_white_disable"), forState: UIControlState.Normal)
         
-        btn.addTarget(self, action: #selector(VisitorView.loginBtnClick), forControlEvents: UIControlEvents.TouchUpInside)
+        btn.addTarget(self, action: #selector(VisitorView.registerBtnClick), forControlEvents: UIControlEvents.TouchUpInside)
         
         return btn
     }()
@@ -145,7 +143,7 @@ class VisitorView: UIView {
         btn.setTitle("Login", forState: UIControlState.Normal)
         btn.setBackgroundImage(UIImage(named: "common_button_white_disable"), forState: UIControlState.Normal)
         
-        btn.addTarget(self, action: #selector(VisitorView.registerBtnClick), forControlEvents: UIControlEvents.TouchUpInside)
+        btn.addTarget(self, action: #selector(VisitorView.loginBtnClick), forControlEvents: UIControlEvents.TouchUpInside)
         
         return btn
     }()

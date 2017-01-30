@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import AFNetworking
 
-class HomeTableViewController: BasicTableViewController {
+class HomeTableViewController: BaseTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
