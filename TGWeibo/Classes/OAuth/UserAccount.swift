@@ -27,6 +27,10 @@ class UserAccount: NSObject, NSCoding {
     /// Nickname
     var screen_name: String?
     
+    override init() {
+        
+    }
+    
     init(dict: [String: AnyObject]) {
         super.init()
         

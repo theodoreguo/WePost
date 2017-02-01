@@ -22,7 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = UIColor.whiteColor()
         
         // Create root view controller
-        window?.rootViewController = MainViewController()
+//        window?.rootViewController = MainViewController()
+        window?.rootViewController = NewFeaturesCollectionViewController()
         window?.makeKeyAndVisible()
         
         return true

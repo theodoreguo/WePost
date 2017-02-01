@@ -17,6 +17,7 @@
 		106EBEFE1E3DC80C001618F4 /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106EBEFD1E3DC80C001618F4 /* NetworkTools.swift */; };
 		106EBF001E3DD999001618F4 /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106EBEFF1E3DD999001618F4 /* UserAccount.swift */; };
 		106EBF021E3F894A001618F4 /* String+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106EBF011E3F894A001618F4 /* String+Category.swift */; };
+		106EBF051E419C59001618F4 /* NewFeaturesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106EBF041E419C59001618F4 /* NewFeaturesCollectionViewController.swift */; };
 		10C112661E2D19C400951119 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C112651E2D19C400951119 /* BaseTableViewController.swift */; };
 		10C112681E2D260D00951119 /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C112671E2D260D00951119 /* VisitorView.swift */; };
 		10C1126A1E2D9B4100951119 /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C112691E2D9B4100951119 /* UIView+AutoLayout.swift */; };
@@ -64,6 +65,7 @@
 		106EBEFD1E3DC80C001618F4 /* NetworkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
 		106EBEFF1E3DD999001618F4 /* UserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
 		106EBF011E3F894A001618F4 /* String+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Category.swift"; sourceTree = "<group>"; };
+		106EBF041E419C59001618F4 /* NewFeaturesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFeaturesCollectionViewController.swift; sourceTree = "<group>"; };
 		10C112651E2D19C400951119 /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		10C112671E2D260D00951119 /* VisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
 		10C112691E2D9B4100951119 /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+AutoLayout.swift"; path = "../../UIView+AutoLayout.swift"; sourceTree = "<group>"; };
@@ -147,6 +149,14 @@
 			path = OAuth;
 			sourceTree = "<group>";
 		};
+		106EBF031E419C05001618F4 /* NewFeatures */ = {
+			isa = PBXGroup;
+			children = (
+				106EBF041E419C59001618F4 /* NewFeaturesCollectionViewController.swift */,
+			);
+			path = NewFeatures;
+			sourceTree = "<group>";
+		};
 		10FA3E421E2C852E00E15D94 = {
 			isa = PBXGroup;
 			children = (
@@ -207,6 +217,7 @@
 				10FA3E801E2C902F00E15D94 /* Main */,
 				10FA3E811E2C902F00E15D94 /* Me */,
 				10FA3E821E2C902F00E15D94 /* Message */,
+				106EBF031E419C05001618F4 /* NewFeatures */,
 				106EBEFA1E3B29BA001618F4 /* OAuth */,
 				10FA3E831E2C902F00E15D94 /* Tools */,
 			);
@@ -502,6 +513,7 @@
 				106EBEF21E39CFDD001618F4 /* PopoverAnimator.swift in Sources */,
 				106EBEF71E39E21C001618F4 /* QRCodeViewController.swift in Sources */,
 				10FA3E4F1E2C852E00E15D94 /* AppDelegate.swift in Sources */,
+				106EBF051E419C59001618F4 /* NewFeaturesCollectionViewController.swift in Sources */,
 				10FA3E8B1E2C920F00E15D94 /* MeTableViewController.swift in Sources */,
 				10FA3E8D1E2C923D00E15D94 /* MessageTableViewController.swift in Sources */,
 				10C1126E1E2DF1FD00951119 /* TitleButton.swift in Sources */,
