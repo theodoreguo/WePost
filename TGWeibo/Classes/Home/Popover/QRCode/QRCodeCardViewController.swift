@@ -47,7 +47,7 @@ class QRCodeCardViewController: UIViewController {
         let bgImage = createNonInterpolatedUIImageFormCIImage(ciImage!, size: 300)
         
         // 5. Create profile (QR code + profile)
-        let icon = UIImage(named: "Naruto")
+        let icon = UIImage(named: "Shaka")
 
         // 6. Compound image
         let newImage = createImage(bgImage, iconImage: icon!)

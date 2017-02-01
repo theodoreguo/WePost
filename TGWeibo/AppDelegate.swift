@@ -23,7 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Create root view controller
 //        window?.rootViewController = MainViewController()
-        window?.rootViewController = NewFeaturesCollectionViewController()
+//        window?.rootViewController = NewFeaturesCollectionViewController()
+        window?.rootViewController = WelcomeViewController()
         window?.makeKeyAndVisible()
         
         return true

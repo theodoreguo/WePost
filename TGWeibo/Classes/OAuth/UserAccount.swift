@@ -34,13 +34,6 @@ class UserAccount: NSObject, NSCoding {
     init(dict: [String: AnyObject]) {
         super.init()
         
-        /*
-        access_token = dict["access_token"] as? String
-        // Direct assignment will not call didSet()
-        expires_in = dict["expires_in"] as? NSNumber
-        uid = dict["uid"] as? String
-        */
-        
         setValuesForKeysWithDictionary(dict)
     }
     
@@ -64,7 +57,7 @@ class UserAccount: NSObject, NSCoding {
      Load user info
      */
     func loadUserInfo(finished: (account: UserAccount?, error: NSError?) -> ()) {
-        assert(access_token == nil, "No authorization")
+        assert(access_token != nil, "No authorization")
         
         let path = "2/users/show.json"
         let params = ["access_token": access_token!, "uid": uid!]
@@ -73,6 +66,7 @@ class UserAccount: NSObject, NSCoding {
                 self.avatar_large = dict["avatar_large"] as? String
                 self.screen_name = dict["screen_name"] as? String
                 finished(account: self, error: nil)
+                print(JSON)
                 return
             }
             
