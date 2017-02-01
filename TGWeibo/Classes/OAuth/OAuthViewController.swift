@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class OAuthViewController: UIViewController {
     let WB_App_Key = "3158814375"
@@ -73,6 +74,17 @@ extension OAuthViewController: UIWebViewDelegate {
         return false
     }
     
+    func webViewDidStartLoad(webView: UIWebView) {
+        // Show loading reminder
+        SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.Black)
+        SVProgressHUD.showInfoWithStatus("Loading")
+    }
+    
+    func webViewDidFinishLoad(webView: UIWebView) {
+        // Dismiss loading reminder
+        SVProgressHUD.dismiss()
+    }
+    
     /**
      Get access token
      
@@ -90,8 +102,17 @@ extension OAuthViewController: UIWebViewDelegate {
             // 1. Convert dictionary to model
             let account = UserAccount(dict: JSON as! [String : AnyObject])
             
-            // 2. Archive model
-            account.saveAccount()
+            // 2. Get user info
+            account.loadUserInfo({ (account, error) in
+                // Save user info
+                if account != nil {
+                    account?.saveAccount()
+                } else {
+                    // Show poor network reminder
+                    SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.Black)
+                    SVProgressHUD.showInfoWithStatus("Poor network")
+                }
+            })
             }) { (_, error) in
                 print(error)
         }

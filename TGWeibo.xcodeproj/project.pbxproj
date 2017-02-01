@@ -16,6 +16,7 @@
 		106EBEFC1E3B2A02001618F4 /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106EBEFB1E3B2A02001618F4 /* OAuthViewController.swift */; };
 		106EBEFE1E3DC80C001618F4 /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106EBEFD1E3DC80C001618F4 /* NetworkTools.swift */; };
 		106EBF001E3DD999001618F4 /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106EBEFF1E3DD999001618F4 /* UserAccount.swift */; };
+		106EBF021E3F894A001618F4 /* String+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106EBF011E3F894A001618F4 /* String+Category.swift */; };
 		10C112661E2D19C400951119 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C112651E2D19C400951119 /* BaseTableViewController.swift */; };
 		10C112681E2D260D00951119 /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C112671E2D260D00951119 /* VisitorView.swift */; };
 		10C1126A1E2D9B4100951119 /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C112691E2D9B4100951119 /* UIView+AutoLayout.swift */; };
@@ -62,6 +63,7 @@
 		106EBEFB1E3B2A02001618F4 /* OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
 		106EBEFD1E3DC80C001618F4 /* NetworkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
 		106EBEFF1E3DD999001618F4 /* UserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
+		106EBF011E3F894A001618F4 /* String+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Category.swift"; sourceTree = "<group>"; };
 		10C112651E2D19C400951119 /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		10C112671E2D260D00951119 /* VisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
 		10C112691E2D9B4100951119 /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+AutoLayout.swift"; path = "../../UIView+AutoLayout.swift"; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 			children = (
 				10C112691E2D9B4100951119 /* UIView+AutoLayout.swift */,
 				106EBEFD1E3DC80C001618F4 /* NetworkTools.swift */,
+				106EBF011E3F894A001618F4 /* String+Category.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -495,6 +498,7 @@
 				10C1126C1E2DEDCB00951119 /* UIBarButtonItem+Category.swift in Sources */,
 				10C1126A1E2D9B4100951119 /* UIView+AutoLayout.swift in Sources */,
 				106EBEFE1E3DC80C001618F4 /* NetworkTools.swift in Sources */,
+				106EBF021E3F894A001618F4 /* String+Category.swift in Sources */,
 				106EBEF21E39CFDD001618F4 /* PopoverAnimator.swift in Sources */,
 				106EBEF71E39E21C001618F4 /* QRCodeViewController.swift in Sources */,
 				10FA3E4F1E2C852E00E15D94 /* AppDelegate.swift in Sources */,
