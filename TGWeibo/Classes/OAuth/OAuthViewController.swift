@@ -107,10 +107,14 @@ extension OAuthViewController: UIWebViewDelegate {
                 // Save user info
                 if account != nil {
                     account?.saveAccount()
+                    // Go to welcome interface
+                    NSNotificationCenter.defaultCenter().postNotificationName(TGSwitchRootViewControllerKey, object: false)
+
+                    return
                 } else {
                     // Show poor network reminder
                     SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.Black)
-                    SVProgressHUD.showInfoWithStatus("Poor network")
+                    SVProgressHUD.showInfoWithStatus("Poor Network")
                 }
             })
             }) { (_, error) in

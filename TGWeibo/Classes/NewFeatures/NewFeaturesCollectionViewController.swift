@@ -107,8 +107,11 @@ class NewFeaturesCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @objc func startBtnClick() {
-        print(#function)
+    /**
+     Monitor start button click
+     */
+    func startBtnClick() {
+        NSNotificationCenter.defaultCenter().postNotificationName(TGSwitchRootViewControllerKey, object: true)
     }
     
     private func setUpUI() {

@@ -42,9 +42,9 @@ class WelcomeViewController: UIViewController {
         super.viewDidAppear(animated)
         
         bottomCons?.constant = -UIScreen.mainScreen().bounds.height -  bottomCons!.constant // -667.0 - (-150) = -517.0
-        print(-UIScreen.mainScreen().bounds.height) // -667.0
-        print(bottomCons!.constant) // -517.0
-        print(-UIScreen.mainScreen().bounds.height -  bottomCons!.constant) // -150.0
+//        print(-UIScreen.mainScreen().bounds.height) // -667.0
+//        print(bottomCons!.constant) // -517.0
+//        print(-UIScreen.mainScreen().bounds.height -  bottomCons!.constant) // -150.0
         
         // 3. Excute animation
         UIView.animateWithDuration(2, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1, options: UIViewAnimationOptions(rawValue: 0), animations: { () -> Void in
@@ -55,7 +55,8 @@ class WelcomeViewController: UIViewController {
             UIView.animateWithDuration( 2.0, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1, options: UIViewAnimationOptions(rawValue: 0), animations: { () -> Void in
                 self.messageLabel.alpha = 1.0
                 }, completion: { (_) -> Void in
-                    print("OK")
+                    // Go to homepage
+                    NSNotificationCenter.defaultCenter().postNotificationName(TGSwitchRootViewControllerKey, object: true)
             })
         }
     }
