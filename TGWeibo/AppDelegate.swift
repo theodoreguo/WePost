@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = defaultController()
         window?.makeKeyAndVisible()
         
-        print(isUpdated())
+//        print(isUpdated())
         
         return true
     }
@@ -70,7 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // 2. Get previous app version from sandbox
         let sandboxVersion = NSUserDefaults.standardUserDefaults().objectForKey("CFBundleShortVersionString") as? String ?? ""
-        print("current = \(currentVersion) sandbox = \(sandboxVersion)")
+//        print("current = \(currentVersion) sandbox = \(sandboxVersion)")
         
         // 3. Compare app's current version and previous version
         if currentVersion.compare(sandboxVersion) == NSComparisonResult.OrderedDescending { // 3.1 There's new version if current version > previous version

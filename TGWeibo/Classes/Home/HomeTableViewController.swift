@@ -8,8 +8,17 @@
 
 import UIKit
 
-class HomeTableViewController: BaseTableViewController {
+let TGHomeReuseIdentifier = "TGHomeReuseIdentifier"
 
+class HomeTableViewController: BaseTableViewController {
+    /// Store Weibo array
+    var statuses: [Statuses]? {
+        didSet{
+            // Refresh table view when data are set
+            tableView.reloadData()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,11 +35,29 @@ class HomeTableViewController: BaseTableViewController {
         // 3. Register notification to monitor popover's actions
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HomeTableViewController.change), name: TGPopoverAnimatorWillShow, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HomeTableViewController.change), name: TGPopoverAnimatorWillDismiss, object: nil)
+        
+        // 4. Register cell
+        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: TGHomeReuseIdentifier)
+        
+        // 5. Load Weibo data
+        loadData()
     }
     
     deinit {
         // Remove notificatons
         NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    /**
+     Get Weibo data
+     */
+    private func loadData() {
+        Statuses.loadStatuses { (models, error) in
+            if error != nil {
+                return
+            }
+            self.statuses = models
+        }
     }
     
     /**
@@ -97,4 +124,21 @@ class HomeTableViewController: BaseTableViewController {
         pa.presentFrame = CGRect(x: 100, y: 56, width: 200, height: 350)
         return pa
     }()
+}
+
+extension HomeTableViewController {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return statuses?.count ?? 0
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        // Get cell
+        let cell = tableView.dequeueReusableCellWithIdentifier(TGHomeReuseIdentifier, forIndexPath: indexPath)
+        
+        // Set data
+        let status = statuses![indexPath.row]
+        cell.textLabel?.text = status.text
+        
+        return cell
+    }
 }
