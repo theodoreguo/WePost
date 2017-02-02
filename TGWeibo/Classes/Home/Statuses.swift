@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class Statuses: NSObject {
     /// Weibo posted time
@@ -42,8 +43,22 @@ class Statuses: NSObject {
             }
         }
     }
-    /// Weibo illustrations
-    var pic_urls: [[String: AnyObject]]?
+    /// Weibo illustrations array
+    var pic_urls: [[String: AnyObject]]? {
+        didSet {
+            // 1. Initialize array
+            storedPicURLS = [NSURL]()
+            // 2. Traverse to get all illustrations' path string
+            for dict in pic_urls! {
+                if let urlStr = dict["thumbnail_pic"] {
+                    // Convert string to URL and save to array
+                    storedPicURLS?.append(NSURL(string: urlStr as! String)!)
+                }
+            }
+        }
+    }
+    /// Store Weibo illustrations' URLs
+    var storedPicURLS: [NSURL]?
     /// User info
     var user: User?
     
@@ -83,12 +98,46 @@ class Statuses: NSObject {
         let path = "2/statuses/home_timeline.json"
         let params = ["access_token": UserAccount.loadAccount()!.access_token!]
         
+        // 1. Get the array storing dictionary corresponding to statuses key
         NetworkTools.shareNetworkTools().GET(path, parameters: params, progress: nil, success: { (_, JSON) in
+            // 2. Traverse array and convert dictionary to model
             let models = dictToModel(JSON!["statuses"] as! [[String: AnyObject]])
-            finished(models: models, error: nil)
+            
+            // 3. Buffer illustrations
+            bufferStatusImages(models, finished: finished)
             }) { (_, error) in
                 print(error)
                 finished(models: nil, error: error)
+        }
+    }
+    
+    /**
+     Buffer illustrations
+     */
+    class func bufferStatusImages(list: [Statuses], finished: (models:[Statuses]?, error:NSError?) -> ()) {
+        // 1. Create an array
+        let group = dispatch_group_create()
+//        print("abc".cacheDir())
+        // 2. Buffer illustrations
+        for status in list {
+            for url in status.storedPicURLS! {
+                // Add download opration to the group
+                dispatch_group_enter(group)
+                
+                // Download images
+                SDWebImageManager.sharedManager().downloadImageWithURL(url, options: SDWebImageOptions(rawValue: 0), progress: nil, completed: { (_, _, _, _, _) -> Void in
+                    // Leave current group
+                    dispatch_group_leave(group)
+//                    print("OK")
+                })
+            }
+        }
+        
+        // 3. Transmit data to caller using closure when all illustrations are downloaded
+        dispatch_group_notify(group, dispatch_get_main_queue()) { () -> Void in
+//            print("Over")
+            // Coming here means all illustrations have been downloaded
+            finished(models: list, error: nil)
         }
     }
     
