@@ -7,14 +7,31 @@
 //
 
 import UIKit
+import SDWebImage
 
 class StatusTableViewCell: UITableViewCell {
     var status: Statuses? {
         didSet {
             nameLabel.text = status?.user?.name
             timeLabel.text = "just now"
-            sourceLabel.text = "from iPhone 7"
             contentLabel.text = status?.text
+            
+            // Set user profile
+            if let url = status?.user?.imageURL {
+                iconView.sd_setImageWithURL(url)
+            }
+            
+            // Set user verification logo
+            verifiedView.image = status?.user?.verifiedImage
+            
+            // Set membership logo
+            memberView.image = status?.user?.mbrankImage
+            
+            // Set source
+            sourceLabel.text = status?.source
+            
+            // Set posted time
+            timeLabel.text = status?.created_at
         }
     }
     
@@ -68,7 +85,7 @@ class StatusTableViewCell: UITableViewCell {
     private lazy var verifiedView: UIImageView = UIImageView(image: UIImage(named: "avatar_enterprise_vip"))
     /// Nickname
     private lazy var nameLabel: UILabel = UILabel.createLabel(UIColor.darkGrayColor(), fontSize: 14)
-    /// Member logo
+    /// Membership logo
     private lazy var memberView: UIImageView = UIImageView(image: UIImage(named: "common_icon_membership"))
     /// Post time
     private lazy var timeLabel: UILabel = UILabel.createLabel(UIColor.darkGrayColor(), fontSize: 14)

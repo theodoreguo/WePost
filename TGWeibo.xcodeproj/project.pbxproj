@@ -24,6 +24,7 @@
 		106EBF0D1E42D87A001618F4 /* StatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106EBF0C1E42D87A001618F4 /* StatusTableViewCell.swift */; };
 		106EBF0F1E432F33001618F4 /* UILabel+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106EBF0E1E432F33001618F4 /* UILabel+Category.swift */; };
 		106EBF111E432F51001618F4 /* UIButton+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106EBF101E432F51001618F4 /* UIButton+Category.swift */; };
+		106EBF131E437BD8001618F4 /* NSDate+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106EBF121E437BD8001618F4 /* NSDate+Category.swift */; };
 		10C112661E2D19C400951119 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C112651E2D19C400951119 /* BaseTableViewController.swift */; };
 		10C112681E2D260D00951119 /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C112671E2D260D00951119 /* VisitorView.swift */; };
 		10C1126A1E2D9B4100951119 /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C112691E2D9B4100951119 /* UIView+AutoLayout.swift */; };
@@ -78,6 +79,7 @@
 		106EBF0C1E42D87A001618F4 /* StatusTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusTableViewCell.swift; sourceTree = "<group>"; };
 		106EBF0E1E432F33001618F4 /* UILabel+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Category.swift"; sourceTree = "<group>"; };
 		106EBF101E432F51001618F4 /* UIButton+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Category.swift"; sourceTree = "<group>"; };
+		106EBF121E437BD8001618F4 /* NSDate+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Category.swift"; sourceTree = "<group>"; };
 		10C112651E2D19C400951119 /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		10C112671E2D260D00951119 /* VisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
 		10C112691E2D9B4100951119 /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+AutoLayout.swift"; path = "../../UIView+AutoLayout.swift"; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 				10C112691E2D9B4100951119 /* UIView+AutoLayout.swift */,
 				106EBEFD1E3DC80C001618F4 /* NetworkTools.swift */,
 				106EBF011E3F894A001618F4 /* String+Category.swift */,
+				106EBF121E437BD8001618F4 /* NSDate+Category.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -515,6 +518,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				106EBF131E437BD8001618F4 /* NSDate+Category.swift in Sources */,
 				106EBEF91E3A4C47001618F4 /* QRCodeCardViewController.swift in Sources */,
 				106EBF0D1E42D87A001618F4 /* StatusTableViewCell.swift in Sources */,
 				106EBEF01E39A318001618F4 /* PopoverPresentationController.swift in Sources */,

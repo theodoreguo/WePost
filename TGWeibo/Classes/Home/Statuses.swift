@@ -10,13 +10,38 @@ import UIKit
 
 class Statuses: NSObject {
     /// Weibo posted time
-    var created_at: String?
+    var created_at: String? {
+        didSet {
+            // created_at = "Sun Sep 12 14:50:57 +0800 2014"
+            // 1. Convert string to date
+            let createdDate = NSDate.dateWithStr(created_at!)
+            // 2. Get formatted date string
+            created_at = createdDate.descDate
+        }
+    }
     /// Weibo ID
     var id: Int = 0
     /// Weibo text content
     var text: String?
     /// Weibo source
-    var source: String?
+    var source: String? {
+        didSet {
+            // 1. Get substring
+            if let str = source {
+                if str == ""
+                {
+                    return
+                }
+                
+                // 1.1 Get substring beginning location
+                let startLocation = (str as NSString).rangeOfString(">").location + 1
+                // 1.2 Get substring length
+                let length = (str as NSString).rangeOfString("<", options: NSStringCompareOptions.BackwardsSearch).location - startLocation
+                // 1.3 Get substring
+                source = "from " + (str as NSString).substringWithRange(NSMakeRange(startLocation, length))
+            }
+        }
+    }
     /// Weibo illustrations
     var pic_urls: [[String: AnyObject]]?
     /// User info
