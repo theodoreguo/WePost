@@ -36,8 +36,12 @@ class HomeTableViewController: BaseTableViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HomeTableViewController.change), name: TGPopoverAnimatorWillShow, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HomeTableViewController.change), name: TGPopoverAnimatorWillDismiss, object: nil)
         
-        // 4. Register cell
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: TGHomeReuseIdentifier)
+        // 4. Register and set cell
+        tableView.registerClass(StatusTableViewCell.self, forCellReuseIdentifier: TGHomeReuseIdentifier)
+        
+        tableView.estimatedRowHeight = 200
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
         // 5. Load Weibo data
         loadData()
@@ -133,11 +137,12 @@ extension HomeTableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // Get cell
-        let cell = tableView.dequeueReusableCellWithIdentifier(TGHomeReuseIdentifier, forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier(TGHomeReuseIdentifier, forIndexPath: indexPath) as! StatusTableViewCell
         
         // Set data
         let status = statuses![indexPath.row]
-        cell.textLabel?.text = status.text
+//        cell.textLabel?.text = status.text
+        cell.status = status
         
         return cell
     }

@@ -21,6 +21,9 @@
 		106EBF071E41D1DB001618F4 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106EBF061E41D1DB001618F4 /* WelcomeViewController.swift */; };
 		106EBF091E4225E5001618F4 /* Statuses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106EBF081E4225E5001618F4 /* Statuses.swift */; };
 		106EBF0B1E42CE57001618F4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106EBF0A1E42CE57001618F4 /* User.swift */; };
+		106EBF0D1E42D87A001618F4 /* StatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106EBF0C1E42D87A001618F4 /* StatusTableViewCell.swift */; };
+		106EBF0F1E432F33001618F4 /* UILabel+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106EBF0E1E432F33001618F4 /* UILabel+Category.swift */; };
+		106EBF111E432F51001618F4 /* UIButton+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106EBF101E432F51001618F4 /* UIButton+Category.swift */; };
 		10C112661E2D19C400951119 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C112651E2D19C400951119 /* BaseTableViewController.swift */; };
 		10C112681E2D260D00951119 /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C112671E2D260D00951119 /* VisitorView.swift */; };
 		10C1126A1E2D9B4100951119 /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C112691E2D9B4100951119 /* UIView+AutoLayout.swift */; };
@@ -72,6 +75,9 @@
 		106EBF061E41D1DB001618F4 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		106EBF081E4225E5001618F4 /* Statuses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Statuses.swift; sourceTree = "<group>"; };
 		106EBF0A1E42CE57001618F4 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		106EBF0C1E42D87A001618F4 /* StatusTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusTableViewCell.swift; sourceTree = "<group>"; };
+		106EBF0E1E432F33001618F4 /* UILabel+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Category.swift"; sourceTree = "<group>"; };
+		106EBF101E432F51001618F4 /* UIButton+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Category.swift"; sourceTree = "<group>"; };
 		10C112651E2D19C400951119 /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		10C112671E2D260D00951119 /* VisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
 		10C112691E2D9B4100951119 /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+AutoLayout.swift"; path = "../../UIView+AutoLayout.swift"; sourceTree = "<group>"; };
@@ -235,6 +241,8 @@
 			isa = PBXGroup;
 			children = (
 				10C1126B1E2DEDCB00951119 /* UIBarButtonItem+Category.swift */,
+				106EBF0E1E432F33001618F4 /* UILabel+Category.swift */,
+				106EBF101E432F51001618F4 /* UIButton+Category.swift */,
 				10C1126D1E2DF1FD00951119 /* TitleButton.swift */,
 			);
 			path = Common;
@@ -256,6 +264,7 @@
 				10FA3E861E2C911C00E15D94 /* HomeTableViewController.swift */,
 				106EBF0A1E42CE57001618F4 /* User.swift */,
 				106EBF081E4225E5001618F4 /* Statuses.swift */,
+				106EBF0C1E42D87A001618F4 /* StatusTableViewCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -507,6 +516,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				106EBEF91E3A4C47001618F4 /* QRCodeCardViewController.swift in Sources */,
+				106EBF0D1E42D87A001618F4 /* StatusTableViewCell.swift in Sources */,
 				106EBEF01E39A318001618F4 /* PopoverPresentationController.swift in Sources */,
 				10FA3E871E2C911C00E15D94 /* HomeTableViewController.swift in Sources */,
 				106EBEFC1E3B2A02001618F4 /* OAuthViewController.swift in Sources */,
@@ -523,6 +533,8 @@
 				106EBF071E41D1DB001618F4 /* WelcomeViewController.swift in Sources */,
 				106EBEF21E39CFDD001618F4 /* PopoverAnimator.swift in Sources */,
 				106EBEF71E39E21C001618F4 /* QRCodeViewController.swift in Sources */,
+				106EBF0F1E432F33001618F4 /* UILabel+Category.swift in Sources */,
+				106EBF111E432F51001618F4 /* UIButton+Category.swift in Sources */,
 				10FA3E4F1E2C852E00E15D94 /* AppDelegate.swift in Sources */,
 				106EBF051E419C59001618F4 /* NewFeaturesCollectionViewController.swift in Sources */,
 				10FA3E8B1E2C920F00E15D94 /* MeTableViewController.swift in Sources */,
