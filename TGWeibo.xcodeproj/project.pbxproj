@@ -19,7 +19,7 @@
 		106EBF021E3F894A001618F4 /* String+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106EBF011E3F894A001618F4 /* String+Category.swift */; };
 		106EBF051E419C59001618F4 /* NewFeaturesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106EBF041E419C59001618F4 /* NewFeaturesCollectionViewController.swift */; };
 		106EBF071E41D1DB001618F4 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106EBF061E41D1DB001618F4 /* WelcomeViewController.swift */; };
-		106EBF091E4225E5001618F4 /* Statuses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106EBF081E4225E5001618F4 /* Statuses.swift */; };
+		106EBF091E4225E5001618F4 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106EBF081E4225E5001618F4 /* Status.swift */; };
 		106EBF0B1E42CE57001618F4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106EBF0A1E42CE57001618F4 /* User.swift */; };
 		106EBF0D1E42D87A001618F4 /* StatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106EBF0C1E42D87A001618F4 /* StatusTableViewCell.swift */; };
 		106EBF0F1E432F33001618F4 /* UILabel+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106EBF0E1E432F33001618F4 /* UILabel+Category.swift */; };
@@ -28,11 +28,15 @@
 		1073DC711E44441500B1A49D /* StatusTableViewBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073DC701E44441500B1A49D /* StatusTableViewBottomView.swift */; };
 		1073DC731E4444CC00B1A49D /* StatusTableViewTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073DC721E4444CC00B1A49D /* StatusTableViewTopView.swift */; };
 		1073DC751E44597500B1A49D /* StatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073DC741E44597500B1A49D /* StatusPictureView.swift */; };
+		1073DC771E446FA800B1A49D /* StatusRepostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073DC761E446FA800B1A49D /* StatusRepostTableViewCell.swift */; };
+		10A93F431E447BA8004614F6 /* StatusOriginalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A93F421E447BA8004614F6 /* StatusOriginalTableViewCell.swift */; };
 		10C112661E2D19C400951119 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C112651E2D19C400951119 /* BaseTableViewController.swift */; };
 		10C112681E2D260D00951119 /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C112671E2D260D00951119 /* VisitorView.swift */; };
 		10C1126A1E2D9B4100951119 /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C112691E2D9B4100951119 /* UIView+AutoLayout.swift */; };
 		10C1126C1E2DEDCB00951119 /* UIBarButtonItem+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C1126B1E2DEDCB00951119 /* UIBarButtonItem+Category.swift */; };
 		10C1126E1E2DF1FD00951119 /* TitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C1126D1E2DF1FD00951119 /* TitleButton.swift */; };
+		10EF2E0C1E44A50A0080AB14 /* HomeRefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10EF2E0B1E44A50A0080AB14 /* HomeRefreshView.xib */; };
+		10EF2E0E1E44AB030080AB14 /* HomeRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EF2E0D1E44AB030080AB14 /* HomeRefreshControl.swift */; };
 		10FA3E4F1E2C852E00E15D94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FA3E4E1E2C852E00E15D94 /* AppDelegate.swift */; };
 		10FA3E561E2C852E00E15D94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10FA3E551E2C852E00E15D94 /* Assets.xcassets */; };
 		10FA3E641E2C852E00E15D94 /* TGWeiboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FA3E631E2C852E00E15D94 /* TGWeiboTests.swift */; };
@@ -77,7 +81,7 @@
 		106EBF011E3F894A001618F4 /* String+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Category.swift"; sourceTree = "<group>"; };
 		106EBF041E419C59001618F4 /* NewFeaturesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFeaturesCollectionViewController.swift; sourceTree = "<group>"; };
 		106EBF061E41D1DB001618F4 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
-		106EBF081E4225E5001618F4 /* Statuses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Statuses.swift; sourceTree = "<group>"; };
+		106EBF081E4225E5001618F4 /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		106EBF0A1E42CE57001618F4 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		106EBF0C1E42D87A001618F4 /* StatusTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusTableViewCell.swift; sourceTree = "<group>"; };
 		106EBF0E1E432F33001618F4 /* UILabel+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Category.swift"; sourceTree = "<group>"; };
@@ -86,11 +90,15 @@
 		1073DC701E44441500B1A49D /* StatusTableViewBottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusTableViewBottomView.swift; sourceTree = "<group>"; };
 		1073DC721E4444CC00B1A49D /* StatusTableViewTopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusTableViewTopView.swift; sourceTree = "<group>"; };
 		1073DC741E44597500B1A49D /* StatusPictureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusPictureView.swift; sourceTree = "<group>"; };
+		1073DC761E446FA800B1A49D /* StatusRepostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusRepostTableViewCell.swift; sourceTree = "<group>"; };
+		10A93F421E447BA8004614F6 /* StatusOriginalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusOriginalTableViewCell.swift; sourceTree = "<group>"; };
 		10C112651E2D19C400951119 /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		10C112671E2D260D00951119 /* VisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
 		10C112691E2D9B4100951119 /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+AutoLayout.swift"; path = "../../UIView+AutoLayout.swift"; sourceTree = "<group>"; };
 		10C1126B1E2DEDCB00951119 /* UIBarButtonItem+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Category.swift"; sourceTree = "<group>"; };
 		10C1126D1E2DF1FD00951119 /* TitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleButton.swift; sourceTree = "<group>"; };
+		10EF2E0B1E44A50A0080AB14 /* HomeRefreshView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeRefreshView.xib; sourceTree = "<group>"; };
+		10EF2E0D1E44AB030080AB14 /* HomeRefreshControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeRefreshControl.swift; sourceTree = "<group>"; };
 		10FA3E4B1E2C852E00E15D94 /* TGWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TGWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10FA3E4E1E2C852E00E15D94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10FA3E551E2C852E00E15D94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -270,9 +278,13 @@
 				106EBEEC1E399BC1001618F4 /* Popover */,
 				106EBEF31E39DF87001618F4 /* QRCode */,
 				10FA3E861E2C911C00E15D94 /* HomeTableViewController.swift */,
+				10EF2E0B1E44A50A0080AB14 /* HomeRefreshView.xib */,
+				10EF2E0D1E44AB030080AB14 /* HomeRefreshControl.swift */,
 				106EBF0A1E42CE57001618F4 /* User.swift */,
-				106EBF081E4225E5001618F4 /* Statuses.swift */,
+				106EBF081E4225E5001618F4 /* Status.swift */,
 				106EBF0C1E42D87A001618F4 /* StatusTableViewCell.swift */,
+				10A93F421E447BA8004614F6 /* StatusOriginalTableViewCell.swift */,
+				1073DC761E446FA800B1A49D /* StatusRepostTableViewCell.swift */,
 				1073DC721E4444CC00B1A49D /* StatusTableViewTopView.swift */,
 				1073DC741E44597500B1A49D /* StatusPictureView.swift */,
 				1073DC701E44441500B1A49D /* StatusTableViewBottomView.swift */,
@@ -453,6 +465,7 @@
 			files = (
 				106EBEEE1E399BE8001618F4 /* PopoverViewController.storyboard in Resources */,
 				10FA3E911E2CB16700E15D94 /* MainVCSettings.json in Resources */,
+				10EF2E0C1E44A50A0080AB14 /* HomeRefreshView.xib in Resources */,
 				10FA3E561E2C852E00E15D94 /* Assets.xcassets in Resources */,
 				106EBEF51E39DFD1001618F4 /* QRCodeViewController.storyboard in Resources */,
 			);
@@ -536,13 +549,15 @@
 				10C112681E2D260D00951119 /* VisitorView.swift in Sources */,
 				106EBF001E3DD999001618F4 /* UserAccount.swift in Sources */,
 				1073DC731E4444CC00B1A49D /* StatusTableViewTopView.swift in Sources */,
+				10A93F431E447BA8004614F6 /* StatusOriginalTableViewCell.swift in Sources */,
 				10FA3E851E2C90DC00E15D94 /* MainViewController.swift in Sources */,
 				10C112661E2D19C400951119 /* BaseTableViewController.swift in Sources */,
 				10FA3E891E2C91EB00E15D94 /* DiscoverTableViewController.swift in Sources */,
 				10C1126C1E2DEDCB00951119 /* UIBarButtonItem+Category.swift in Sources */,
 				10C1126A1E2D9B4100951119 /* UIView+AutoLayout.swift in Sources */,
 				106EBEFE1E3DC80C001618F4 /* NetworkTools.swift in Sources */,
-				106EBF091E4225E5001618F4 /* Statuses.swift in Sources */,
+				10EF2E0E1E44AB030080AB14 /* HomeRefreshControl.swift in Sources */,
+				106EBF091E4225E5001618F4 /* Status.swift in Sources */,
 				106EBF021E3F894A001618F4 /* String+Category.swift in Sources */,
 				106EBF071E41D1DB001618F4 /* WelcomeViewController.swift in Sources */,
 				106EBEF21E39CFDD001618F4 /* PopoverAnimator.swift in Sources */,
@@ -557,6 +572,7 @@
 				10FA3E8D1E2C923D00E15D94 /* MessageTableViewController.swift in Sources */,
 				1073DC711E44441500B1A49D /* StatusTableViewBottomView.swift in Sources */,
 				10C1126E1E2DF1FD00951119 /* TitleButton.swift in Sources */,
+				1073DC771E446FA800B1A49D /* StatusRepostTableViewCell.swift in Sources */,
 				10FA3E921E2CB16700E15D94 /* NullViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -74,6 +74,7 @@ class WelcomeViewController: UIViewController {
     private lazy var messageLabel: UILabel = {
         let label = UILabel()
         label.text = "Welcome Back"
+        label.textColor = UIColor.lightGrayColor()
         label.sizeToFit()
         label.alpha = 0.0
         return label

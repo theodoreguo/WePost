@@ -91,7 +91,7 @@ class VisitorView: UIView {
     private func startAnimation() {
         // Create animation
         let anim = CABasicAnimation(keyPath: "transform.rotation")
-        // Set animation attributes
+        // Set animation properties
         anim.toValue = 2 * M_PI
         anim.duration = 20
         anim.repeatCount = MAXFLOAT

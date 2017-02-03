@@ -1,5 +1,5 @@
 //
-//  Statuses.swift
+//  Status.swift
 //  TGWeibo
 //
 //  Created by Theodore Guo on 1/2/17.
@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-class Statuses: NSObject {
+class Status: NSObject {
     /// Weibo posted time
     var created_at: String? {
         didSet {
@@ -61,6 +61,12 @@ class Statuses: NSObject {
     var storedPicURLS: [NSURL]?
     /// User info
     var user: User?
+    /// Reposted Weibo
+    var retweeted_status: Status?
+    /// Return original or reposted Weibo illustrations' URL array (when reposting Weibo, original Weibo has no illustrations)
+    var pictureURLS: [NSURL]? {
+        return retweeted_status != nil ? retweeted_status?.storedPicURLS : storedPicURLS
+    }
     
     // Convert dictionary to model
     init(dict: [String: AnyObject]) {
@@ -71,12 +77,20 @@ class Statuses: NSObject {
     
     // setValuesForKeysWithDictionary() will call below method internally
     override func setValue(value: AnyObject?, forKey key: String) {
-        // Judge whether user dictionary belonging to Weibo dictionary is being assigned data currently
+        // 1. Judge whether user dictionary belonging to Weibo dictionary is being assigned data currently
         if "user" == key {
             // Create a model based on the dictionary corresponding to current user key 
             user = User(dict: value as! [String: AnyObject])
             return
         }
+        
+        // 2. Judge whether reposted Weibo is being assigned data currently
+        if "retweeted_status" == key {
+            // Convert to model based on the dictionary corresponding to current retweeted_status key
+            retweeted_status = Status(dict: value as! [String: AnyObject])
+            return
+        }
+        
         super.setValue(value, forKey: key)
     }
     
@@ -94,9 +108,14 @@ class Statuses: NSObject {
     /**
      Load Weibo data
      */
-    class func loadStatuses(finished: (models: [Statuses]?, error: NSError?) -> ()) {
+    class func loadStatuses(since_id: Int, finished: (models: [Status]?, error: NSError?) -> ()) {
         let path = "2/statuses/home_timeline.json"
-        let params = ["access_token": UserAccount.loadAccount()!.access_token!]
+        var params = ["access_token": UserAccount.loadAccount()!.access_token!]
+        
+        // Pull-down refresh
+        if since_id > 0 {
+            params["since_id"] = "\(since_id)"
+        }
         
         // 1. Get the array storing dictionary corresponding to statuses key
         NetworkTools.shareNetworkTools().GET(path, parameters: params, progress: nil, success: { (_, JSON) in
@@ -114,16 +133,20 @@ class Statuses: NSObject {
     /**
      Buffer illustrations
      */
-    class func bufferStatusImages(list: [Statuses], finished: (models:[Statuses]?, error:NSError?) -> ()) {
+    class func bufferStatusImages(list: [Status], finished: (models:[Status]?, error:NSError?) -> ()) {
+        if list.count == 0 {
+            finished(models: list, error: nil)
+        }
+        
         // 1. Create an array
         let group = dispatch_group_create()
 
         // 2. Buffer illustrations
         for status in list {
-            guard status.storedPicURLS != nil else {
+            guard status.pictureURLS != nil else {
                 continue
             }
-            for url in status.storedPicURLS! {
+            for url in status.pictureURLS! {
                 // Add download opration to the group
                 dispatch_group_enter(group)
                 
@@ -145,10 +168,10 @@ class Statuses: NSObject {
     /**
      Convert dictionary array to model array
      */
-    class func dictToModel(list: [[String: AnyObject]]) -> [Statuses] {
-        var models = [Statuses]()
+    class func dictToModel(list: [[String: AnyObject]]) -> [Status] {
+        var models = [Status]()
         for dict in list {
-            models.append(Statuses(dict: dict))
+            models.append(Status(dict: dict))
         }
         return models
     }

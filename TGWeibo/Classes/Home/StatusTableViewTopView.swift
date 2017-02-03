@@ -9,7 +9,7 @@
 import UIKit
 
 class StatusTableViewTopView: UIView {
-    var status: Statuses? {
+    var status: Status? {
         didSet {
             // Set nickname
             nameLabel.text = status?.user?.name

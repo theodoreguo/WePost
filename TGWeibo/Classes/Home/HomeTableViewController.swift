@@ -12,7 +12,7 @@ let TGHomeReuseIdentifier = "TGHomeReuseIdentifier"
 
 class HomeTableViewController: BaseTableViewController {
     /// Store Weibo array
-    var statuses: [Statuses]? {
+    var statuses: [Status]? {
         didSet{
             // Refresh table view when data are set
             tableView.reloadData()
@@ -37,15 +37,19 @@ class HomeTableViewController: BaseTableViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HomeTableViewController.change), name: TGPopoverAnimatorWillDismiss, object: nil)
         
         // 4. Register and set cell
-        tableView.registerClass(StatusTableViewCell.self, forCellReuseIdentifier: TGHomeReuseIdentifier)
+        tableView.registerClass(StatusOriginalTableViewCell.self, forCellReuseIdentifier: StatusTableViewCellIdentifier.OriginalCell.rawValue)
+        tableView.registerClass(StatusRepostTableViewCell.self, forCellReuseIdentifier: StatusTableViewCellIdentifier.RepostCell.rawValue)
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
 //        tableView.estimatedRowHeight = 200
 //        tableView.rowHeight = UITableViewAutomaticDimension
 //        tableView.rowHeight = 300
         
-        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        // 5. Add refresh widget
+        refreshControl = HomeRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(loadData), forControlEvents: UIControlEvents.ValueChanged)
         
-        // 5. Load Weibo data
+        // 6. Load Weibo data
         loadData()
     }
     
@@ -57,12 +61,23 @@ class HomeTableViewController: BaseTableViewController {
     /**
      Get Weibo data
      */
-    private func loadData() {
-        Statuses.loadStatuses { (models, error) in
+    @objc private func loadData() {
+        let since_id = statuses?.first?.id ?? 0
+        Status.loadStatuses(since_id) { (models, error) in
+            // Stop refreshing
+            self.refreshControl?.endRefreshing()
+            
             if error != nil {
                 return
             }
-            self.statuses = models
+            
+            // Pull-down refresh
+            if since_id > 0 {
+                // If pull-down refresh is triggered, joint new data to the front of old data
+                self.statuses = models! + self.statuses!
+            } else {
+                self.statuses = models
+            }
         }
     }
     
@@ -149,14 +164,15 @@ extension HomeTableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        // Get cell
-        let cell = tableView.dequeueReusableCellWithIdentifier(TGHomeReuseIdentifier, forIndexPath: indexPath) as! StatusTableViewCell
-        
-        // Set data
         let status = statuses![indexPath.row]
-//        cell.textLabel?.text = status.text
+        
+        // 1. Get cell
+        let cell = tableView.dequeueReusableCellWithIdentifier(StatusTableViewCellIdentifier.cellID(status), forIndexPath: indexPath) as! StatusTableViewCell
+        
+        // 2. Set data
         cell.status = status
         
+        // 3. Return cell
         return cell
     }
     
@@ -173,7 +189,7 @@ extension HomeTableViewController {
         }
         
         // 3. Get cell
-        let cell = tableView.dequeueReusableCellWithIdentifier(TGHomeReuseIdentifier) as! StatusTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(StatusTableViewCellIdentifier.cellID(status)) as! StatusTableViewCell
         
         // 4. Get row height
         let rowHeight = cell.rowHeight(status)

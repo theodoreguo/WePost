@@ -10,7 +10,7 @@ import UIKit
 import SDWebImage
 
 class StatusPictureView: UICollectionView {
-    var status: Statuses? {
+    var status: Status? {
         didSet {
             // Refresh data
             reloadData()
@@ -58,7 +58,9 @@ class StatusPictureView: UICollectionView {
         if count == 1 {
             // 3.1 Get buffered illustrations
             let key = status?.storedPicURLS!.first?.absoluteString
-            let image = SDWebImageManager.sharedManager().imageCache.imageFromDiskCacheForKey(key!)
+            guard let image = SDWebImageManager.sharedManager().imageCache.imageFromDiskCacheForKey(key!) else {
+                return CGSizeZero
+            }
             pictureLayout.itemSize = image.size
             // 3.2 Return buffered illustrations' size
             return image.size
