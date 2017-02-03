@@ -39,8 +39,10 @@ class HomeTableViewController: BaseTableViewController {
         // 4. Register and set cell
         tableView.registerClass(StatusTableViewCell.self, forCellReuseIdentifier: TGHomeReuseIdentifier)
         
-        tableView.estimatedRowHeight = 200
-        tableView.rowHeight = UITableViewAutomaticDimension
+//        tableView.estimatedRowHeight = 200
+//        tableView.rowHeight = UITableViewAutomaticDimension
+//        tableView.rowHeight = 300
+        
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
         // 5. Load Weibo data
@@ -128,6 +130,17 @@ class HomeTableViewController: BaseTableViewController {
         pa.presentFrame = CGRect(x: 100, y: 56, width: 200, height: 350)
         return pa
     }()
+    
+    /// Row height buffer (using dictionary to store ID as key and row height as value)
+    var rowCache: [Int: CGFloat] = [Int: CGFloat]()
+    
+    /**
+     Handle memory warning
+     */
+    override func didReceiveMemoryWarning() {
+        // Clear buffer
+        rowCache.removeAll()
+    }
 }
 
 extension HomeTableViewController {
@@ -145,5 +158,30 @@ extension HomeTableViewController {
         cell.status = status
         
         return cell
+    }
+    
+    /**
+     Return row height
+     */
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        // 1. Get the model corresponding to that row
+        let status = statuses![indexPath.row]
+        
+        // 2. Acquire the row height if it exists in buffer
+        if let height = rowCache[status.id] {
+            return height
+        }
+        
+        // 3. Get cell
+        let cell = tableView.dequeueReusableCellWithIdentifier(TGHomeReuseIdentifier) as! StatusTableViewCell
+        
+        // 4. Get row height
+        let rowHeight = cell.rowHeight(status)
+        
+        // 5. Buffer row height
+        rowCache[status.id] = rowHeight
+        
+        // 6. Return row height
+        return rowHeight
     }
 }

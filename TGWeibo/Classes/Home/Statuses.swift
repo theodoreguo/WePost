@@ -117,9 +117,12 @@ class Statuses: NSObject {
     class func bufferStatusImages(list: [Statuses], finished: (models:[Statuses]?, error:NSError?) -> ()) {
         // 1. Create an array
         let group = dispatch_group_create()
-//        print("abc".cacheDir())
+
         // 2. Buffer illustrations
         for status in list {
+            guard status.storedPicURLS != nil else {
+                continue
+            }
             for url in status.storedPicURLS! {
                 // Add download opration to the group
                 dispatch_group_enter(group)
@@ -128,14 +131,12 @@ class Statuses: NSObject {
                 SDWebImageManager.sharedManager().downloadImageWithURL(url, options: SDWebImageOptions(rawValue: 0), progress: nil, completed: { (_, _, _, _, _) -> Void in
                     // Leave current group
                     dispatch_group_leave(group)
-//                    print("OK")
                 })
             }
         }
         
         // 3. Transmit data to caller using closure when all illustrations are downloaded
         dispatch_group_notify(group, dispatch_get_main_queue()) { () -> Void in
-//            print("Over")
             // Coming here means all illustrations have been downloaded
             finished(models: list, error: nil)
         }
