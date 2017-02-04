@@ -42,6 +42,7 @@
             <connections>
                 <outlet property="arrowIcon" destination="4GY-Jh-ciw" id="23d-WI-vjh"/>
                 <outlet property="loadingView" destination="yv7-Jf-VCg" id="E8b-kK-WOf"/>
+                <outlet property="pullDownLabel" destination="6TR-ZK-JQE" id="DSB-eG-19a"/>
                 <outlet property="pullDownView" destination="3dZ-yC-FdU" id="vhx-SF-iJV"/>
             </connections>
             <point key="canvasLocation" x="135" y="210"/>

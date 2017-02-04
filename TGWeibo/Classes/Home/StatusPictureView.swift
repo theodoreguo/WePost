@@ -27,8 +27,9 @@ class StatusPictureView: UICollectionView {
         // 1. Register cell
         registerClass(PictureViewCell.self, forCellWithReuseIdentifier: TGPictureViewCellReuseIdentifier)
         
-        // 2. Set data source
+        // 2. Set data source and delegate
         dataSource = self
+        delegate = self
         
         // 3. Set space between cells
         pictureLayout.minimumInteritemSpacing = 10
@@ -88,7 +89,14 @@ class StatusPictureView: UICollectionView {
     }
 }
 
-extension StatusPictureView: UICollectionViewDataSource {
+/// Picture selected notification name
+let TGStatusPictureViewSelected = "TGStatusPictureViewSelected"
+/// The index's key ofncurrent selected picture
+let TGStatusPictureViewIndexKey = "TGStatusPictureViewIndexKey"
+/// The URL's key of all pictures to be displayed
+let TGStatusPictureViewURLKey = "TGStatusPictureViewURLKey"
+
+extension StatusPictureView: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return status?.storedPicURLS?.count ?? 0
     }
@@ -96,10 +104,19 @@ extension StatusPictureView: UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         // 1. Get cell
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(TGPictureViewCellReuseIdentifier, forIndexPath: indexPath) as! PictureViewCell
+        
         // 2. Set data
         cell.imageURL = status?.storedPicURLS![indexPath.item]
         
+        // 3. Return cell
         return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+//        print(status?.storedLargePicURLS![indexPath.item])
+        let info = [TGStatusPictureViewIndexKey: indexPath, TGStatusPictureViewURLKey: status!.storedLargePicURLS!]
+        NSNotificationCenter.defaultCenter().postNotificationName(TGStatusPictureViewSelected, object: self, userInfo: info)
+        
     }
 }
 
@@ -107,7 +124,13 @@ private class PictureViewCell: UICollectionViewCell {
     /// Define property to receive transmitted data
     var imageURL: NSURL? {
         didSet {
+            // 1. Set picture
             iconImageView.sd_setImageWithURL(imageURL!)
+            
+            // 2. Judge whether it's gif file or not
+            if (imageURL!.absoluteString as NSString).pathExtension.lowercaseString == "gif" {
+                gifImageView.hidden = false
+            }
         }
     }
     
@@ -128,10 +151,20 @@ private class PictureViewCell: UICollectionViewCell {
     private func setUpUI() {
         // 1. Add subviews
         contentView.addSubview(iconImageView)
+        contentView.addSubview(gifImageView)
+        
         // 2. Lay out subviews
         iconImageView.tg_Fill(contentView)
+        gifImageView.tg_AlignInner(type: TG_AlignType.TopLeft, referView: iconImageView, size: nil)
     }
     
     // MARK: - Lazy loading
-    private lazy var iconImageView:UIImageView = UIImageView()
+    /// Picture view
+    private lazy var iconImageView: UIImageView = UIImageView()
+    /// Gif logo
+    private lazy var gifImageView: UIImageView = {
+        let iv = UIImageView(image: UIImage(named: "common-gif"))
+        iv.hidden = true
+        return iv
+    }()
 }

@@ -37,6 +37,9 @@
 		10C1126E1E2DF1FD00951119 /* TitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C1126D1E2DF1FD00951119 /* TitleButton.swift */; };
 		10EF2E0C1E44A50A0080AB14 /* HomeRefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10EF2E0B1E44A50A0080AB14 /* HomeRefreshView.xib */; };
 		10EF2E0E1E44AB030080AB14 /* HomeRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EF2E0D1E44AB030080AB14 /* HomeRefreshControl.swift */; };
+		10EF2E111E45B2580080AB14 /* PhotoBrowserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EF2E101E45B2580080AB14 /* PhotoBrowserController.swift */; };
+		10EF2E131E45CBE10080AB14 /* UIColor+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EF2E121E45CBE10080AB14 /* UIColor+Category.swift */; };
+		10EF2E151E45CF050080AB14 /* PhotoBrowserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EF2E141E45CF050080AB14 /* PhotoBrowserCell.swift */; };
 		10FA3E4F1E2C852E00E15D94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FA3E4E1E2C852E00E15D94 /* AppDelegate.swift */; };
 		10FA3E561E2C852E00E15D94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10FA3E551E2C852E00E15D94 /* Assets.xcassets */; };
 		10FA3E641E2C852E00E15D94 /* TGWeiboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FA3E631E2C852E00E15D94 /* TGWeiboTests.swift */; };
@@ -99,6 +102,9 @@
 		10C1126D1E2DF1FD00951119 /* TitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleButton.swift; sourceTree = "<group>"; };
 		10EF2E0B1E44A50A0080AB14 /* HomeRefreshView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeRefreshView.xib; sourceTree = "<group>"; };
 		10EF2E0D1E44AB030080AB14 /* HomeRefreshControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeRefreshControl.swift; sourceTree = "<group>"; };
+		10EF2E101E45B2580080AB14 /* PhotoBrowserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoBrowserController.swift; sourceTree = "<group>"; };
+		10EF2E121E45CBE10080AB14 /* UIColor+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Category.swift"; sourceTree = "<group>"; };
+		10EF2E141E45CF050080AB14 /* PhotoBrowserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoBrowserCell.swift; sourceTree = "<group>"; };
 		10FA3E4B1E2C852E00E15D94 /* TGWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TGWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10FA3E4E1E2C852E00E15D94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10FA3E551E2C852E00E15D94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -184,6 +190,15 @@
 				106EBF061E41D1DB001618F4 /* WelcomeViewController.swift */,
 			);
 			path = NewFeatures;
+			sourceTree = "<group>";
+		};
+		10EF2E0F1E45B2200080AB14 /* PhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				10EF2E101E45B2580080AB14 /* PhotoBrowserController.swift */,
+				10EF2E141E45CF050080AB14 /* PhotoBrowserCell.swift */,
+			);
+			path = PhotoBrowser;
 			sourceTree = "<group>";
 		};
 		10FA3E421E2C852E00E15D94 = {
@@ -275,6 +290,7 @@
 		10FA3E7F1E2C902F00E15D94 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				10EF2E0F1E45B2200080AB14 /* PhotoBrowser */,
 				106EBEEC1E399BC1001618F4 /* Popover */,
 				106EBEF31E39DF87001618F4 /* QRCode */,
 				10FA3E861E2C911C00E15D94 /* HomeTableViewController.swift */,
@@ -326,6 +342,7 @@
 				106EBEFD1E3DC80C001618F4 /* NetworkTools.swift */,
 				106EBF011E3F894A001618F4 /* String+Category.swift */,
 				106EBF121E437BD8001618F4 /* NSDate+Category.swift */,
+				10EF2E121E45CBE10080AB14 /* UIColor+Category.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -547,6 +564,7 @@
 				10FA3E871E2C911C00E15D94 /* HomeTableViewController.swift in Sources */,
 				106EBEFC1E3B2A02001618F4 /* OAuthViewController.swift in Sources */,
 				10C112681E2D260D00951119 /* VisitorView.swift in Sources */,
+				10EF2E151E45CF050080AB14 /* PhotoBrowserCell.swift in Sources */,
 				106EBF001E3DD999001618F4 /* UserAccount.swift in Sources */,
 				1073DC731E4444CC00B1A49D /* StatusTableViewTopView.swift in Sources */,
 				10A93F431E447BA8004614F6 /* StatusOriginalTableViewCell.swift in Sources */,
@@ -557,6 +575,7 @@
 				10C1126A1E2D9B4100951119 /* UIView+AutoLayout.swift in Sources */,
 				106EBEFE1E3DC80C001618F4 /* NetworkTools.swift in Sources */,
 				10EF2E0E1E44AB030080AB14 /* HomeRefreshControl.swift in Sources */,
+				10EF2E111E45B2580080AB14 /* PhotoBrowserController.swift in Sources */,
 				106EBF091E4225E5001618F4 /* Status.swift in Sources */,
 				106EBF021E3F894A001618F4 /* String+Category.swift in Sources */,
 				106EBF071E41D1DB001618F4 /* WelcomeViewController.swift in Sources */,
@@ -566,6 +585,7 @@
 				106EBF111E432F51001618F4 /* UIButton+Category.swift in Sources */,
 				10FA3E4F1E2C852E00E15D94 /* AppDelegate.swift in Sources */,
 				1073DC751E44597500B1A49D /* StatusPictureView.swift in Sources */,
+				10EF2E131E45CBE10080AB14 /* UIColor+Category.swift in Sources */,
 				106EBF051E419C59001618F4 /* NewFeaturesCollectionViewController.swift in Sources */,
 				10FA3E8B1E2C920F00E15D94 /* MeTableViewController.swift in Sources */,
 				106EBF0B1E42CE57001618F4 /* User.swift in Sources */,

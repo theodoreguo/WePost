@@ -35,6 +35,7 @@ class HomeTableViewController: BaseTableViewController {
         // 3. Register notification to monitor popover's actions
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HomeTableViewController.change), name: TGPopoverAnimatorWillShow, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HomeTableViewController.change), name: TGPopoverAnimatorWillDismiss, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HomeTableViewController.showPhotoBrowser), name: TGStatusPictureViewSelected, object: nil)
         
         // 4. Register and set cell
         tableView.registerClass(StatusOriginalTableViewCell.self, forCellReuseIdentifier: StatusTableViewCellIdentifier.OriginalCell.rawValue)
@@ -49,6 +50,8 @@ class HomeTableViewController: BaseTableViewController {
         refreshControl = HomeRefreshControl()
         refreshControl?.addTarget(self, action: #selector(loadData), forControlEvents: UIControlEvents.ValueChanged)
         
+        newStatusLabel.hidden = false
+        
         // 6. Load Weibo data
         loadData()
     }
@@ -59,11 +62,39 @@ class HomeTableViewController: BaseTableViewController {
     }
     
     /**
+     Show photo browser
+     */
+    func showPhotoBrowser(notification: NSNotification) {
+//        print(notification.userInfo)
+        guard let indexPath = notification.userInfo![TGStatusPictureViewIndexKey] as? NSIndexPath else {
+            return
+        }
+        guard let urls = notification.userInfo![TGStatusPictureViewURLKey] as? [NSURL] else {
+            return
+        }
+        // Create photo browser
+        let vc = PhotoBrowserController(index: indexPath.item, urls: urls)
+        // Show photo browser
+        presentViewController(vc, animated: true, completion: nil)
+    }
+    
+    /**
      Get Weibo data
      */
+    /// Store the state which is pull-down or pull-up refresh currently
+    var pullUpRefreshFlag = false
     @objc private func loadData() {
-        let since_id = statuses?.first?.id ?? 0
-        Status.loadStatuses(since_id) { (models, error) in
+        // 1. It's pull-down refresh by default
+        var since_id = statuses?.first?.id ?? 0
+        
+        // 2. Judge it's pull-up refresh or not
+        var max_id = 0
+        if pullUpRefreshFlag {
+            since_id = 0
+            max_id = statuses?.last?.id ?? 0
+        }
+        
+        Status.loadStatuses(since_id, max_id: max_id) { (models, error) in
             // Stop refreshing
             self.refreshControl?.endRefreshing()
             
@@ -75,9 +106,31 @@ class HomeTableViewController: BaseTableViewController {
             if since_id > 0 {
                 // If pull-down refresh is triggered, joint new data to the front of old data
                 self.statuses = models! + self.statuses!
+                
+                // Show refresh reminder widget
+                self.showNewStatusCount(models?.count ?? 0)
+            } else if max_id > 0 {
+                // If pull-up refresh is triggered, joint new data to the end of old data
+                self.statuses = self.statuses! + models!
             } else {
                 self.statuses = models
             }
+        }
+    }
+    
+    /**
+     Show the quantity of updated Weibo statuses
+     */
+    private func showNewStatusCount(count: Int) {
+        newStatusLabel.hidden = false
+        newStatusLabel.text = (count == 0) ? "No more update" : "Update \(count) Weibo"
+        
+        let rect = newStatusLabel.frame
+        UIView.animateWithDuration(1.5, animations: {
+            UIView.setAnimationRepeatAutoreverses(true)
+            self.newStatusLabel.frame = CGRectOffset(rect, 0, 3 * rect.height)
+            }) { (_) in
+               self.newStatusLabel.frame = rect
         }
     }
     
@@ -145,6 +198,22 @@ class HomeTableViewController: BaseTableViewController {
         pa.presentFrame = CGRect(x: 100, y: 56, width: 200, height: 350)
         return pa
     }()
+    /// Refresh reminder widget
+    private lazy var newStatusLabel: UILabel = {
+        let label = UILabel()
+        label.backgroundColor = UIColor.orangeColor()
+        label.textAlignment = NSTextAlignment.Center
+        label.font = UIFont.systemFontOfSize(14)
+        label.textColor = UIColor.whiteColor()
+        let height: CGFloat = 44
+        label.frame = CGRect(x: 0, y: -2 * height, width: UIScreen.mainScreen().bounds.width, height: height)
+        
+        self.navigationController?.navigationBar.insertSubview(label, atIndex: 0)
+        
+        label.hidden = true
+        
+        return label
+    }()
     
     /// Row height buffer (using dictionary to store ID as key and row height as value)
     var rowCache: [Int: CGFloat] = [Int: CGFloat]()
@@ -172,7 +241,14 @@ extension HomeTableViewController {
         // 2. Set data
         cell.status = status
         
-        // 3. Return cell
+        // 3. Judge if the last cell has been reached
+        let count = statuses?.count ?? 0
+        if indexPath.row == (count - 1) {
+            pullUpRefreshFlag = true
+            loadData()
+        }
+        
+        // 4. Return cell
         return cell
     }
     

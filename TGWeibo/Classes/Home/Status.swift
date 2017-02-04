@@ -48,17 +48,24 @@ class Status: NSObject {
         didSet {
             // 1. Initialize array
             storedPicURLS = [NSURL]()
+            storedLargePicURLS = [NSURL]()
             // 2. Traverse to get all illustrations' path string
             for dict in pic_urls! {
-                if let urlStr = dict["thumbnail_pic"] {
-                    // Convert string to URL and save to array
-                    storedPicURLS?.append(NSURL(string: urlStr as! String)!)
+                if let urlStr = dict["thumbnail_pic"] as? String {
+                    // 1. Convert string to URL and save to array
+                    storedPicURLS?.append(NSURL(string: urlStr)!)
+                    
+                    // 2. Handle large illustrations
+                    let largeURLStr = urlStr.stringByReplacingOccurrencesOfString("thumbnail", withString: "large")
+                    storedLargePicURLS?.append(NSURL(string: largeURLStr)!)
                 }
             }
         }
     }
     /// Store Weibo illustrations' URLs
     var storedPicURLS: [NSURL]?
+    /// Store Weibo large illustrations' URLs
+    var storedLargePicURLS: [NSURL]?
     /// User info
     var user: User?
     /// Reposted Weibo
@@ -66,6 +73,10 @@ class Status: NSObject {
     /// Return original or reposted Weibo illustrations' URL array (when reposting Weibo, original Weibo has no illustrations)
     var pictureURLS: [NSURL]? {
         return retweeted_status != nil ? retweeted_status?.storedPicURLS : storedPicURLS
+    }
+    /// Return original or reposted Weibo large illustrations' URL array
+    var largePictureURLS: [NSURL]? {
+        return retweeted_status != nil ? retweeted_status?.storedLargePicURLS : storedLargePicURLS
     }
     
     // Convert dictionary to model
@@ -108,13 +119,18 @@ class Status: NSObject {
     /**
      Load Weibo data
      */
-    class func loadStatuses(since_id: Int, finished: (models: [Status]?, error: NSError?) -> ()) {
+    class func loadStatuses(since_id: Int, max_id: Int, finished: (models: [Status]?, error: NSError?) -> ()) {
         let path = "2/statuses/home_timeline.json"
         var params = ["access_token": UserAccount.loadAccount()!.access_token!]
         
         // Pull-down refresh
         if since_id > 0 {
             params["since_id"] = "\(since_id)"
+        }
+        
+        // Pull-up refresh
+        if max_id > 0 {
+            params["max_id"] = "\(max_id - 1)"
         }
         
         // 1. Get the array storing dictionary corresponding to statuses key
@@ -136,6 +152,7 @@ class Status: NSObject {
     class func bufferStatusImages(list: [Status], finished: (models:[Status]?, error:NSError?) -> ()) {
         if list.count == 0 {
             finished(models: list, error: nil)
+            return
         }
         
         // 1. Create an array

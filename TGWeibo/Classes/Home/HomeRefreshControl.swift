@@ -86,6 +86,8 @@ class HomeRefreshView: UIView {
     @IBOutlet weak var pullDownView: UIView!
     // Arrow icon
     @IBOutlet weak var arrowIcon: UIImageView!
+    // Pull down label
+    @IBOutlet weak var pullDownLabel: UILabel!
     
     /**
      Turn the arrow icon upside down
@@ -96,6 +98,7 @@ class HomeRefreshView: UIView {
         UIView.animateWithDuration(0.2) { 
             self.arrowIcon.transform = CGAffineTransformRotate(self.arrowIcon.transform, CGFloat(angle))
         }
+        pullDownLabel.text = !flag ? "Pull down" : "Release"
     }
     
     /**
