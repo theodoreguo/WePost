@@ -40,6 +40,7 @@
 		10EF2E111E45B2580080AB14 /* PhotoBrowserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EF2E101E45B2580080AB14 /* PhotoBrowserController.swift */; };
 		10EF2E131E45CBE10080AB14 /* UIColor+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EF2E121E45CBE10080AB14 /* UIColor+Category.swift */; };
 		10EF2E151E45CF050080AB14 /* PhotoBrowserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EF2E141E45CF050080AB14 /* PhotoBrowserCell.swift */; };
+		10EF2E181E4629360080AB14 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EF2E171E4629360080AB14 /* ComposeViewController.swift */; };
 		10FA3E4F1E2C852E00E15D94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FA3E4E1E2C852E00E15D94 /* AppDelegate.swift */; };
 		10FA3E561E2C852E00E15D94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10FA3E551E2C852E00E15D94 /* Assets.xcassets */; };
 		10FA3E641E2C852E00E15D94 /* TGWeiboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FA3E631E2C852E00E15D94 /* TGWeiboTests.swift */; };
@@ -105,6 +106,7 @@
 		10EF2E101E45B2580080AB14 /* PhotoBrowserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoBrowserController.swift; sourceTree = "<group>"; };
 		10EF2E121E45CBE10080AB14 /* UIColor+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Category.swift"; sourceTree = "<group>"; };
 		10EF2E141E45CF050080AB14 /* PhotoBrowserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoBrowserCell.swift; sourceTree = "<group>"; };
+		10EF2E171E4629360080AB14 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		10FA3E4B1E2C852E00E15D94 /* TGWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TGWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10FA3E4E1E2C852E00E15D94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10FA3E551E2C852E00E15D94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -201,6 +203,14 @@
 			path = PhotoBrowser;
 			sourceTree = "<group>";
 		};
+		10EF2E161E4628FB0080AB14 /* Compose */ = {
+			isa = PBXGroup;
+			children = (
+				10EF2E171E4629360080AB14 /* ComposeViewController.swift */,
+			);
+			path = Compose;
+			sourceTree = "<group>";
+		};
 		10FA3E421E2C852E00E15D94 = {
 			isa = PBXGroup;
 			children = (
@@ -256,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				10FA3E7D1E2C902F00E15D94 /* Common */,
+				10EF2E161E4628FB0080AB14 /* Compose */,
 				10FA3E7E1E2C902F00E15D94 /* Discover */,
 				10FA3E7F1E2C902F00E15D94 /* Home */,
 				10FA3E801E2C902F00E15D94 /* Main */,
@@ -582,6 +593,7 @@
 				106EBEF21E39CFDD001618F4 /* PopoverAnimator.swift in Sources */,
 				106EBEF71E39E21C001618F4 /* QRCodeViewController.swift in Sources */,
 				106EBF0F1E432F33001618F4 /* UILabel+Category.swift in Sources */,
+				10EF2E181E4629360080AB14 /* ComposeViewController.swift in Sources */,
 				106EBF111E432F51001618F4 /* UIButton+Category.swift in Sources */,
 				10FA3E4F1E2C852E00E15D94 /* AppDelegate.swift in Sources */,
 				1073DC751E44597500B1A49D /* StatusPictureView.swift in Sources */,

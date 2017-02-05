@@ -30,7 +30,9 @@ class MainViewController: UITabBarController {
      Actions once compose button is clicked
      */
     func composeBtnClick() {
-        print(#function)
+        let composeVC = ComposeViewController()
+        let navi = UINavigationController(rootViewController: composeVC)
+        presentViewController(navi, animated: true, completion: nil)
     }
     
     // MARK: - Internal control functions
