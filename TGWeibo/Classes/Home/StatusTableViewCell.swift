@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import KILabel
 
 let TGPictureViewCellReuseIdentifier = "TGPictureViewCellReuseIdentifier"
 
@@ -40,7 +41,8 @@ class StatusTableViewCell: UITableViewCell {
             topView.status = status
             
             // 2. Set content text
-            contentLabel.text = status?.text
+//            contentLabel.text = status?.text
+            contentLabel.attributedText = EmoticonPackage.emoticonString(status?.text ?? "")
             
             // 3. Set illustrations
             // 3.1 Assign data (model data should be assigned first as model data are necessary for calculating size)
@@ -99,10 +101,18 @@ class StatusTableViewCell: UITableViewCell {
     /// Top view
     private lazy var topView: StatusTableViewTopView = StatusTableViewTopView()
     /// Content
-    lazy var contentLabel: UILabel = {
-        let label = UILabel.createLabel(UIColor.darkGrayColor(), fontSize: 15)
+    lazy var contentLabel: KILabel = {
+        let label = KILabel()
+        label.textColor = UIColor.darkGrayColor()
+        label.font = UIFont.systemFontOfSize(15)
         label.numberOfLines = 0
         label.preferredMaxLayoutWidth = UIScreen.mainScreen().bounds.width - 20
+        
+        // Monitor URL click
+        label.urlLinkTapHandler = {(label, string, range) in
+            print(string)
+        }
+        
         return label
     }()
     /// Illustration

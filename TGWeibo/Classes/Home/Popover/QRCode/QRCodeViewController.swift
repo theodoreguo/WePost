@@ -211,7 +211,7 @@ extension QRCodeViewController: AVCaptureMetadataOutputObjectsDelegate {
         // 2.4 Draw path
         layer.path = path.CGPath
         
-        // 3. Add drawed layer to drawLayer
+        // 3. Add drawed layer to draw layer
         drawLayer.addSublayer(layer)
     }
     
@@ -219,7 +219,7 @@ extension QRCodeViewController: AVCaptureMetadataOutputObjectsDelegate {
      Clear remaining layer in drawLayer
      */
     private func clearCorners() {
-        // 1. Judge whether other layers exist in drawLayer
+        // 1. Judge whether other layers exist in draw layer
         if drawLayer.sublayers == nil || drawLayer.sublayers?.count == 0 {
             return
         }

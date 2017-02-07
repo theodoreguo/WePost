@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KILabel
 
 class StatusRepostTableViewCell: StatusTableViewCell {
     /// Override superclass status property to dispose reposted Weibo's nickname and content text (subclass overrides superclass didSet() won't affect superclass's operation)
@@ -14,7 +15,8 @@ class StatusRepostTableViewCell: StatusTableViewCell {
         didSet {
             let name = status?.retweeted_status?.user?.name ?? ""
             let text = status?.retweeted_status?.text ?? ""
-            repostLabel.text = name + ": " + text
+//            repostLabel.text = name + ": " + text
+            repostLabel.attributedText = EmoticonPackage.emoticonString("@" + name + ": " + text)
         }
     }
     
@@ -43,11 +45,19 @@ class StatusRepostTableViewCell: StatusTableViewCell {
     
     // MARK: Lazy loading
     /// Repost content text
-    private lazy var repostLabel: UILabel = {
-    let label = UILabel.createLabel(UIColor.darkGrayColor(), fontSize: 15)
-    label.numberOfLines = 0
-    label.preferredMaxLayoutWidth = UIScreen.mainScreen().bounds.width - 20
-    return label
+    private lazy var repostLabel: KILabel = {
+        let label = KILabel()
+        label.textColor = UIColor.darkGrayColor()
+        label.font = UIFont.systemFontOfSize(15)
+        label.numberOfLines = 0
+        label.preferredMaxLayoutWidth = UIScreen.mainScreen().bounds.width - 20
+        
+        // Monitor URL click
+        label.urlLinkTapHandler = {(label, string, range) in
+            print(string)
+        }
+        
+        return label
     }()
     /// Repost background button
     private lazy var repostBgBtn: UIButton = {

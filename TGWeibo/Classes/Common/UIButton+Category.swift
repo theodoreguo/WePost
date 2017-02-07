@@ -13,7 +13,7 @@ extension UIButton {
         let btn = UIButton()
         btn.setImage(UIImage(named: imageName), forState: UIControlState.Normal)
         btn.setTitle(title, forState: UIControlState.Normal)
-        btn.titleLabel?.font = UIFont.systemFontOfSize(10)
+        btn.titleLabel?.font = UIFont.systemFontOfSize(14)
         btn.setBackgroundImage(UIImage(named: "timeline_card_bottom_background"), forState: UIControlState.Normal)
         btn.setTitleColor(UIColor.darkGrayColor(), forState: UIControlState.Normal)
         btn.titleEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)

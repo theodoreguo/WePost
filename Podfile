@@ -5,4 +5,5 @@ target 'TGWeibo' do
 pod 'AFNetworking'
 pod 'SDWebImage'
 pod 'SVProgressHUD'
+pod 'KILabel'
 end

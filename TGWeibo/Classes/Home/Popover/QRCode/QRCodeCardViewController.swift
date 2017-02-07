@@ -115,5 +115,6 @@ class QRCodeCardViewController: UIViewController {
     }
     
     // MARK: - Lazy loading
+    /// Icon view
     private lazy var iconView = UIImageView()
 }
