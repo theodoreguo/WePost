@@ -110,7 +110,20 @@ class StatusTableViewCell: UITableViewCell {
         
         // Monitor URL click
         label.urlLinkTapHandler = {(label, string, range) in
+            // URL
             print(string)
+            
+//            let webVC = WebViewController()
+            let webVC = WebExplorerController()
+            webVC.url = NSURL(string: string)
+            webVC.title = label.text
+            
+            // Acquire current navigation controller
+            let tabBarVC = UIApplication.sharedApplication().keyWindow?.rootViewController as! UITabBarController
+            let navi = tabBarVC.selectedViewController as! UINavigationController
+            // Refer to: http://stackoverflow.com/questions/1040522/setting-hidesbottombarwhenpushed-leaves-bottom-bar-missing-after-view-controller/3672570#3672570
+            webVC.hidesBottomBarWhenPushed = true
+            navi.pushViewController(webVC, animated: true)
         }
         
         return label

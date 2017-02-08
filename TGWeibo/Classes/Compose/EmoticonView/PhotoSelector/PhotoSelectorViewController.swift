@@ -40,7 +40,7 @@ class PhotoSelectorViewController: UIViewController {
     private lazy var collcetionView: UICollectionView = {
        let clv = UICollectionView(frame: CGRectZero, collectionViewLayout: PhotoSelectorViewLayout())
         clv.registerClass(PhotoSelectorCell.self, forCellWithReuseIdentifier: TGPhotoSelectorCellReuseIdentifier)
-        clv.backgroundColor = UIColor.lightGrayColor()
+        clv.backgroundColor = UIColor.orangeColor()
         clv.dataSource = self
         return clv
     }()

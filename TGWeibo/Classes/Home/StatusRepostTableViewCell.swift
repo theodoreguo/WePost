@@ -45,7 +45,7 @@ class StatusRepostTableViewCell: StatusTableViewCell {
     
     // MARK: Lazy loading
     /// Repost content text
-    private lazy var repostLabel: KILabel = {
+    lazy var repostLabel: KILabel = {
         let label = KILabel()
         label.textColor = UIColor.darkGrayColor()
         label.font = UIFont.systemFontOfSize(15)
@@ -55,6 +55,16 @@ class StatusRepostTableViewCell: StatusTableViewCell {
         // Monitor URL click
         label.urlLinkTapHandler = {(label, string, range) in
             print(string)
+            
+            let webVC = WebExplorerController()
+            webVC.url = NSURL(string: string)
+            webVC.title = label.text
+            
+            // Acquire current navigation controller
+            let tabBarVC = UIApplication.sharedApplication().keyWindow?.rootViewController as! UITabBarController
+            let navi = tabBarVC.selectedViewController as! UINavigationController
+            webVC.hidesBottomBarWhenPushed = true
+            navi.pushViewController(webVC, animated: true)
         }
         
         return label

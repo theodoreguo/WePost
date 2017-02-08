@@ -110,11 +110,11 @@ class MainViewController: UITabBarController {
         viewController.title = title
         
         // 4. Add navigation controller
-        let nav = UINavigationController()
-        nav.addChildViewController(viewController)
+        let navi = UINavigationController()
+        navi.addChildViewController(viewController)
         
         // 5. Add navigation controller to current controller
-        addChildViewController(nav)
+        addChildViewController(navi)
     }
     
     // MARK: - Lazy loading

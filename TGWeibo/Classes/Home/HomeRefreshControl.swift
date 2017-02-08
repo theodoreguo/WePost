@@ -76,6 +76,7 @@ class HomeRefreshControl: UIRefreshControl {
     }
     
     // MARK: - Lazy loading
+    /// Custom refresh view
     private lazy var refreshView: HomeRefreshView = HomeRefreshView.refreshView()
 }
 

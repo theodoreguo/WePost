@@ -22,11 +22,12 @@ class PopoverPresentationController: UIPresentationController {
      */
     override init(presentedViewController: UIViewController, presentingViewController: UIViewController) {
         super.init(presentedViewController: presentedViewController, presentingViewController: presentingViewController)
+        
         print(presentedViewController)
     }
     
     /**
-     Invoked when container view will layout subviews
+     Invoked when container view will lay out subviews
      */
     override func containerViewWillLayoutSubviews() {
         // 1. Modify popover's size
@@ -41,6 +42,7 @@ class PopoverPresentationController: UIPresentationController {
     }
     
     // MARK: - Lazy loading
+    /// Mask view
     private lazy var maskView: UIView = {
         // 1. Create view
         let view = UIView()

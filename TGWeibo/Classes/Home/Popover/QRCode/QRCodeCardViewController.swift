@@ -9,7 +9,6 @@
 import UIKit
 
 class QRCodeCardViewController: UIViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
