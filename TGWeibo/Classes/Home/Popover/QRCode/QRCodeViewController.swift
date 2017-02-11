@@ -97,7 +97,7 @@ class QRCodeViewController: UIViewController, UITabBarDelegate {
         // Execute scanline animation
         UIView.animateWithDuration(2.0) {
             // Modify constraint
-            self.scanlineCons.constant = self.containerHeightCons.constant
+            self.scanlineCons.constant = self.containerHeightCons.constant / 2
             // Set animation's repeated times
             UIView.setAnimationRepeatCount(MAXFLOAT)
             // Refresh view
