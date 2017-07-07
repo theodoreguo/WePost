@@ -1,4 +1,4 @@
-# TGWeibo
+# WePost
 This is an iOS app in Swift implementing major functions of social app Sina Weibo.
 ## 1. New Features Push
 ![image](https://github.com/theodoreguo/TGWeibo/blob/master/Intro/New%20Features.gif)
