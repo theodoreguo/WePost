@@ -91,7 +91,7 @@ class StatusPictureView: UICollectionView {
 
 /// Picture selected notification name
 let TGStatusPictureViewSelected = "TGStatusPictureViewSelected"
-/// The index's key ofncurrent selected picture
+/// The index's key of current selected picture
 let TGStatusPictureViewIndexKey = "TGStatusPictureViewIndexKey"
 /// The URL's key of all pictures to be displayed
 let TGStatusPictureViewURLKey = "TGStatusPictureViewURLKey"
