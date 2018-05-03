@@ -10,7 +10,7 @@ import UIKit
 
 extension NSDate {
     class func dateWithStr(time: String) -> NSDate {
-        // 1. Convert time string from serve to NSDate
+        // 1. Convert time string from server to NSDate
         // 1.1 Create formatter
         let formatter = NSDateFormatter()
         // 1.2 Set date format
